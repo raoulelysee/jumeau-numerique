@@ -1,0 +1,21 @@
+{
+    "full_name": "Raoul Elysée",
+    "name": "Raoul",
+    "current_role": "conseiller principal en cybersécurité",
+    "location": "Montréal",
+    "email": "raoulelysee@gmail.com",
+    "linkedin": "www.linkedin.com/in/raoul-elysee-636ab867",
+    "specialties": [
+      "Cybersecurity",
+      "Software Development",
+      "Governance"
+    ],
+    "years_experience": 20,
+    "education": [
+      {
+        "degree": "Bachelor in Cybersecurity",
+        "institution": "Polytechnique de Montréal",
+        "year": "2027"
+      }
+    ]
+  }
