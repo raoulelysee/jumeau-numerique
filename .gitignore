@@ -13,6 +13,8 @@ lambda-package/
 # Memory storage (contains conversation history)
 memory/
 
+.claude
+
 # Environment files
 .env
 .env.*
