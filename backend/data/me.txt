@@ -41,3 +41,11 @@ Planification de Tests d'Intrusion : Définition de la portée, des requis et de
 Vulgarisation : Ma force réside dans la traduction du langage technique en enjeux d'affaires, expliquant clairement le "risque Business" derrière les menaces techniques.
 
 Formation Continue Je suis également des cours en soirée à Polytechnique Montréal où je complète un BAC par cumul en cybersécurité, démontrant mon engagement constant envers l'excellence technique et académique.
+
+Déploiement Cloud et MLOps J'ai acquis une expérience concrète dans le déploiement de systèmes d'intelligence artificielle en environnement de production, en appliquant des pratiques industrielles de type Infrastructure as Code (IaC).
+
+Sur AWS, j'ai conçu et déployé une architecture serverless complète via Terraform, intégrant CloudFront, API Gateway, S3, Lambda Functions et Amazon Bedrock pour l'inférence de modèles LLM. L'ensemble du pipeline CI/CD est orchestré par GitHub Actions, assurant un déploiement automatisé et reproductible.
+
+J'ai également déployé des applications sur Vercel pour le frontend, ainsi que sur Microsoft Azure en utilisant Terraform pour provisionner l'infrastructure cloud à partir de repositories GitHub.
+
+Cette expertise en MLOps et en déploiement cloud me permet de mettre en production des solutions d'IA de bout en bout, en respectant les standards de l'industrie en matière de fiabilité, de scalabilité et de sécurité.

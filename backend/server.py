@@ -10,6 +10,7 @@ from datetime import datetime
 import boto3
 from botocore.exceptions import ClientError
 from context import prompt
+from security import validate_message
 
 # Load environment variables
 load_dotenv()
@@ -184,6 +185,14 @@ async def health_check():
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     try:
+        # Validate and sanitize user input
+        is_valid, error_msg, sanitized_message = validate_message(request.message)
+        if not is_valid:
+            return ChatResponse(
+                response=error_msg,
+                session_id=request.session_id or str(uuid.uuid4())
+            )
+
         # Generate session ID if not provided
         session_id = request.session_id or str(uuid.uuid4())
 
@@ -191,11 +200,11 @@ async def chat(request: ChatRequest):
         conversation = load_conversation(session_id)
 
         # Call Bedrock for response
-        assistant_response = call_bedrock(conversation, request.message)
+        assistant_response = call_bedrock(conversation, sanitized_message)
 
         # Update conversation history
         conversation.append(
-            {"role": "user", "content": request.message, "timestamp": datetime.now().isoformat()}
+            {"role": "user", "content": sanitized_message, "timestamp": datetime.now().isoformat()}
         )
         conversation.append(
             {
