@@ -111,34 +111,30 @@ def save_conversation(session_id: str, messages: List[Dict]):
 
 def call_bedrock(conversation: List[Dict], user_message: str) -> str:
     """Call AWS Bedrock with conversation history"""
-    
+
     # Build messages in Bedrock format
+    # Bedrock requires alternating user/assistant messages
     messages = []
-    
-    # Add system prompt as first user message (Bedrock convention)
-    messages.append({
-        "role": "user", 
-        "content": [{"text": f"System: {prompt()}"}]
-    })
-    
+
     # Add conversation history (limit to last 10 exchanges to manage context)
     for msg in conversation[-20:]:  # Last 10 back-and-forth exchanges
         messages.append({
             "role": msg["role"],
             "content": [{"text": msg["content"]}]
         })
-    
+
     # Add current user message
     messages.append({
         "role": "user",
         "content": [{"text": user_message}]
     })
-    
+
     try:
-        # Call Bedrock using the converse API
+        # Call Bedrock using the converse API with system prompt
         response = bedrock_client.converse(
             modelId=BEDROCK_MODEL_ID,
             messages=messages,
+            system=[{"text": prompt()}],
             inferenceConfig={
                 "maxTokens": 2000,
                 "temperature": 0.7,
