@@ -16,16 +16,10 @@ variable "environment" {
   }
 }
 
-variable "groq_api_key" {
-  description = "Groq API key"
+variable "bedrock_model_id" {
+  description = "Bedrock model ID"
   type        = string
-  sensitive   = true
-}
-
-variable "groq_model_id" {
-  description = "Groq model ID"
-  type        = string
-  default     = "llama-3.3-70b-versatile"
+  default     = "us.amazon.nova-lite-v1:0"
 }
 
 variable "app_api_key" {

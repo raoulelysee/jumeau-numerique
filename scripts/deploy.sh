@@ -32,8 +32,6 @@ fi
 TF_COMMON_VARS=(
   -var="project_name=$PROJECT_NAME"
   -var="environment=$ENVIRONMENT"
-  -var="groq_api_key=${GROQ_API_KEY:-}"
-  -var="groq_model_id=${GROQ_MODEL_ID:-llama-3.3-70b-versatile}"
   -var="app_api_key=${APP_API_KEY:-}"
 )
 

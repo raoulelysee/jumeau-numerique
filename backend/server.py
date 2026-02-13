@@ -11,7 +11,6 @@ from collections import defaultdict
 import time
 import boto3
 from botocore.exceptions import ClientError
-from groq import Groq
 from context import prompt
 from security import validate_message
 
@@ -65,11 +64,14 @@ async def security_middleware(request: Request, call_next):
     return await call_next(request)
 
 
-# Initialize Groq client
-groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+# Initialize Bedrock client
+bedrock_client = boto3.client(
+    service_name="bedrock-runtime",
+    region_name=os.getenv("DEFAULT_AWS_REGION", "us-east-1")
+)
 
-# Groq model selection
-GROQ_MODEL_ID = os.getenv("GROQ_MODEL_ID")
+# Bedrock model selection
+BEDROCK_MODEL_ID = os.getenv("BEDROCK_MODEL_ID", "us.amazon.nova-lite-v1:0")
 
 # Memory storage configuration
 USE_S3 = os.getenv("USE_S3", "false").lower() == "true"
@@ -139,43 +141,38 @@ def save_conversation(session_id: str, messages: List[Dict]):
             json.dump(messages, f, indent=2)
 
 
-def call_groq(conversation: List[Dict], user_message: str) -> str:
-    """Call Groq API with conversation history"""
+def call_bedrock(conversation: List[Dict], user_message: str) -> str:
+    """Call AWS Bedrock with conversation history"""
 
-    # Build messages in OpenAI/Groq format
-    messages = [
-        {"role": "system", "content": prompt()}
-    ]
-
-    # Add conversation history (limit to last 10 exchanges to manage context)
-    for msg in conversation[-20:]:  # Last 10 back-and-forth exchanges
+    # Build messages in Bedrock format (alternating user/assistant)
+    messages = []
+    for msg in conversation[-20:]:
         messages.append({
             "role": msg["role"],
-            "content": msg["content"]
+            "content": [{"text": msg["content"]}]
         })
-
-    # Add current user message
     messages.append({
         "role": "user",
-        "content": user_message
+        "content": [{"text": user_message}]
     })
 
     try:
-        # Call Groq API
-        response = groq_client.chat.completions.create(
-            model=GROQ_MODEL_ID,
+        response = bedrock_client.converse(
+            modelId=BEDROCK_MODEL_ID,
             messages=messages,
-            max_tokens=2000,
-            temperature=0.3,
-            top_p=0.9
+            system=[{"text": prompt()}],
+            inferenceConfig={
+                "maxTokens": 2000,
+                "temperature": 0.3,
+                "topP": 0.9
+            }
         )
+        return response["output"]["message"]["content"][0]["text"]
 
-        # Extract the response text
-        return response.choices[0].message.content
-
-    except Exception as e:
-        print(f"Groq error: {e}")
-        raise HTTPException(status_code=500, detail=f"Groq error: {str(e)}")
+    except ClientError as e:
+        error_code = e.response['Error']['Code']
+        print(f"Bedrock error ({error_code}): {e}")
+        raise HTTPException(status_code=500, detail=f"Bedrock error: {str(e)}")
 
 
 @app.get("/")
@@ -212,8 +209,8 @@ async def chat(request: ChatRequest):
         # Load conversation history
         conversation = load_conversation(session_id)
 
-        # Call Groq for response
-        assistant_response = call_groq(conversation, sanitized_message)
+        # Call Bedrock for response
+        assistant_response = call_bedrock(conversation, sanitized_message)
 
         # Update conversation history
         conversation.append(
