@@ -133,10 +133,12 @@ resource "aws_lambda_function" "api" {
 
   environment {
     variables = {
-      CORS_ORIGINS     = var.use_custom_domain ? "https://${var.root_domain},https://www.${var.root_domain}" : "https://${aws_cloudfront_distribution.main.domain_name}"
-      S3_BUCKET        = aws_s3_bucket.memory.id
-      USE_S3           = "true"
-      BEDROCK_MODEL_ID = var.bedrock_model_id
+      CORS_ORIGINS   = var.use_custom_domain ? "https://${var.root_domain},https://www.${var.root_domain}" : "https://${aws_cloudfront_distribution.main.domain_name}"
+      S3_BUCKET      = aws_s3_bucket.memory.id
+      USE_S3         = "true"
+      GROQ_API_KEY   = var.groq_api_key
+      GROQ_MODEL_ID  = var.groq_model_id
+      APP_API_KEY    = var.app_api_key
     }
   }
 
@@ -152,9 +154,9 @@ resource "aws_apigatewayv2_api" "main" {
 
   cors_configuration {
     allow_credentials = false
-    allow_headers     = ["*"]
+    allow_headers     = ["Content-Type", "X-API-Key"]
     allow_methods     = ["GET", "POST", "OPTIONS"]
-    allow_origins     = ["*"]
+    allow_origins     = var.use_custom_domain ? ["https://${var.root_domain}", "https://www.${var.root_domain}"] : ["https://${aws_cloudfront_distribution.main.domain_name}"]
     max_age           = 300
   }
 }

@@ -28,11 +28,20 @@ else
   terraform workspace select "$ENVIRONMENT"
 fi
 
+# Common Terraform variables
+TF_COMMON_VARS=(
+  -var="project_name=$PROJECT_NAME"
+  -var="environment=$ENVIRONMENT"
+  -var="groq_api_key=${GROQ_API_KEY:-}"
+  -var="groq_model_id=${GROQ_MODEL_ID:-llama-3.3-70b-versatile}"
+  -var="app_api_key=${APP_API_KEY:-}"
+)
+
 # Use prod.tfvars for production environment
 if [ "$ENVIRONMENT" = "prod" ]; then
-  TF_APPLY_CMD=(terraform apply -var-file=prod.tfvars -var="project_name=$PROJECT_NAME" -var="environment=$ENVIRONMENT" -auto-approve)
+  TF_APPLY_CMD=(terraform apply -var-file=prod.tfvars "${TF_COMMON_VARS[@]}" -auto-approve)
 else
-  TF_APPLY_CMD=(terraform apply -var="project_name=$PROJECT_NAME" -var="environment=$ENVIRONMENT" -auto-approve)
+  TF_APPLY_CMD=(terraform apply "${TF_COMMON_VARS[@]}" -auto-approve)
 fi
 
 echo "🎯 Applying Terraform..."
@@ -45,9 +54,12 @@ CUSTOM_URL=$(terraform output -raw custom_domain_url 2>/dev/null || true)
 # 3. Build + deploy frontend
 cd ../frontend
 
-# Create production environment file with API URL
-echo "📝 Setting API URL for production..."
-echo "NEXT_PUBLIC_API_URL=$API_URL" > .env.production
+# Create production environment file with API URL and API Key
+echo "📝 Setting environment for production..."
+cat > .env.production <<EOF
+NEXT_PUBLIC_API_URL=$API_URL
+NEXT_PUBLIC_API_KEY=${NEXT_PUBLIC_API_KEY:-}
+EOF
 
 npm install
 npm run build

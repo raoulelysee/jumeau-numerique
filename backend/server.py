@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import os
@@ -7,8 +7,11 @@ from typing import Optional, List, Dict
 import json
 import uuid
 from datetime import datetime
+from collections import defaultdict
+import time
 import boto3
 from botocore.exceptions import ClientError
+from groq import Groq
 from context import prompt
 from security import validate_message
 
@@ -17,29 +20,56 @@ load_dotenv()
 
 app = FastAPI()
 
-# Configure CORS
+# Configure CORS - restricted to known origins only
 origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=False,
     allow_methods=["GET", "POST", "OPTIONS"],
-    allow_headers=["*"],
+    allow_headers=["Content-Type", "X-API-Key"],
 )
 
-# Initialize Bedrock client
-bedrock_client = boto3.client(
-    service_name="bedrock-runtime", 
-    region_name=os.getenv("DEFAULT_AWS_REGION", "us-east-1")
-)
+# API Key for frontend authentication
+APP_API_KEY = os.getenv("APP_API_KEY", "")
 
-# Bedrock model selection
-# Available models:
-# - amazon.nova-micro-v1:0  (fastest, cheapest)
-# - amazon.nova-lite-v1:0   (balanced - default)
-# - amazon.nova-pro-v1:0    (most capable, higher cost)
-# Remember the Heads up: you might need to add us. or eu. prefix to the below model id
-BEDROCK_MODEL_ID = os.getenv("BEDROCK_MODEL_ID", "us.amazon.nova-lite-v1:0")
+# Rate limiting: track requests per IP
+RATE_LIMIT_MAX = int(os.getenv("RATE_LIMIT_MAX", "10"))  # max requests per window
+RATE_LIMIT_WINDOW = int(os.getenv("RATE_LIMIT_WINDOW", "60"))  # window in seconds
+rate_limit_store: dict[str, list[float]] = defaultdict(list)
+
+
+@app.middleware("http")
+async def security_middleware(request: Request, call_next):
+    from fastapi.responses import JSONResponse
+
+    # Skip for health/root and OPTIONS (CORS preflight)
+    if request.url.path in ["/", "/health"] or request.method == "OPTIONS":
+        return await call_next(request)
+
+    # API Key check
+    if APP_API_KEY:
+        provided_key = request.headers.get("X-API-Key", "")
+        if provided_key != APP_API_KEY:
+            return JSONResponse(status_code=403, content={"detail": "Invalid API key"})
+
+    # Rate limiting by IP
+    client_ip = request.client.host if request.client else "unknown"
+    now = time.time()
+    # Clean old entries outside the window
+    rate_limit_store[client_ip] = [t for t in rate_limit_store[client_ip] if now - t < RATE_LIMIT_WINDOW]
+    if len(rate_limit_store[client_ip]) >= RATE_LIMIT_MAX:
+        return JSONResponse(status_code=429, content={"detail": "Too many requests. Please try again later."})
+    rate_limit_store[client_ip].append(now)
+
+    return await call_next(request)
+
+
+# Initialize Groq client
+groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+
+# Groq model selection
+GROQ_MODEL_ID = os.getenv("GROQ_MODEL_ID")
 
 # Memory storage configuration
 USE_S3 = os.getenv("USE_S3", "false").lower() == "true"
@@ -109,73 +139,53 @@ def save_conversation(session_id: str, messages: List[Dict]):
             json.dump(messages, f, indent=2)
 
 
-def call_bedrock(conversation: List[Dict], user_message: str) -> str:
-    """Call AWS Bedrock with conversation history"""
+def call_groq(conversation: List[Dict], user_message: str) -> str:
+    """Call Groq API with conversation history"""
 
-    # Build messages in Bedrock format
-    # Bedrock requires alternating user/assistant messages
-    messages = []
+    # Build messages in OpenAI/Groq format
+    messages = [
+        {"role": "system", "content": prompt()}
+    ]
 
     # Add conversation history (limit to last 10 exchanges to manage context)
     for msg in conversation[-20:]:  # Last 10 back-and-forth exchanges
         messages.append({
             "role": msg["role"],
-            "content": [{"text": msg["content"]}]
+            "content": msg["content"]
         })
 
     # Add current user message
     messages.append({
         "role": "user",
-        "content": [{"text": user_message}]
+        "content": user_message
     })
 
     try:
-        # Call Bedrock using the converse API with system prompt
-        response = bedrock_client.converse(
-            modelId=BEDROCK_MODEL_ID,
+        # Call Groq API
+        response = groq_client.chat.completions.create(
+            model=GROQ_MODEL_ID,
             messages=messages,
-            system=[{"text": prompt()}],
-            inferenceConfig={
-                "maxTokens": 2000,
-                "temperature": 0.7,
-                "topP": 0.9
-            }
+            max_tokens=2000,
+            temperature=0.3,
+            top_p=0.9
         )
-        
+
         # Extract the response text
-        return response["output"]["message"]["content"][0]["text"]
-        
-    except ClientError as e:
-        error_code = e.response['Error']['Code']
-        if error_code == 'ValidationException':
-            # Handle message format issues
-            print(f"Bedrock validation error: {e}")
-            raise HTTPException(status_code=400, detail="Invalid message format for Bedrock")
-        elif error_code == 'AccessDeniedException':
-            print(f"Bedrock access denied: {e}")
-            raise HTTPException(status_code=403, detail="Access denied to Bedrock model")
-        else:
-            print(f"Bedrock error: {e}")
-            raise HTTPException(status_code=500, detail=f"Bedrock error: {str(e)}")
+        return response.choices[0].message.content
+
+    except Exception as e:
+        print(f"Groq error: {e}")
+        raise HTTPException(status_code=500, detail=f"Groq error: {str(e)}")
 
 
 @app.get("/")
 async def root():
-    return {
-        "message": "AI Digital Twin API (Powered by AWS Bedrock)",
-        "memory_enabled": True,
-        "storage": "S3" if USE_S3 else "local",
-        "ai_model": BEDROCK_MODEL_ID
-    }
+    return {"status": "ok"}
 
 
 @app.get("/health")
 async def health_check():
-    return {
-        "status": "healthy", 
-        "use_s3": USE_S3,
-        "bedrock_model": BEDROCK_MODEL_ID
-    }
+    return {"status": "ok"}
 
 
 @app.post("/chat", response_model=ChatResponse)
@@ -189,14 +199,21 @@ async def chat(request: ChatRequest):
                 session_id=request.session_id or str(uuid.uuid4())
             )
 
-        # Generate session ID if not provided
-        session_id = request.session_id or str(uuid.uuid4())
+        # Validate and generate session ID
+        if request.session_id:
+            try:
+                uuid.UUID(request.session_id, version=4)
+                session_id = request.session_id
+            except ValueError:
+                raise HTTPException(status_code=400, detail="Invalid session ID format")
+        else:
+            session_id = str(uuid.uuid4())
 
         # Load conversation history
         conversation = load_conversation(session_id)
 
-        # Call Bedrock for response
-        assistant_response = call_bedrock(conversation, sanitized_message)
+        # Call Groq for response
+        assistant_response = call_groq(conversation, sanitized_message)
 
         # Update conversation history
         conversation.append(
@@ -225,6 +242,10 @@ async def chat(request: ChatRequest):
 @app.get("/conversation/{session_id}")
 async def get_conversation(session_id: str):
     """Retrieve conversation history"""
+    try:
+        uuid.UUID(session_id, version=4)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid session ID format")
     try:
         conversation = load_conversation(session_id)
         return {"session_id": session_id, "messages": conversation}
