@@ -20,7 +20,7 @@ load_dotenv()
 app = FastAPI()
 
 # Configure CORS - restricted to known origins only
-origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+origins = os.environ["CORS_ORIGINS"].split(",")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -30,11 +30,11 @@ app.add_middleware(
 )
 
 # API Key for frontend authentication
-APP_API_KEY = os.getenv("APP_API_KEY", "")
+APP_API_KEY = os.environ["APP_API_KEY"]
 
 # Rate limiting: track requests per IP
-RATE_LIMIT_MAX = int(os.getenv("RATE_LIMIT_MAX", "10"))  # max requests per window
-RATE_LIMIT_WINDOW = int(os.getenv("RATE_LIMIT_WINDOW", "60"))  # window in seconds
+RATE_LIMIT_MAX = int(os.environ["RATE_LIMIT_MAX"])
+RATE_LIMIT_WINDOW = int(os.environ["RATE_LIMIT_WINDOW"])
 rate_limit_store: dict[str, list[float]] = defaultdict(list)
 
 
@@ -67,16 +67,16 @@ async def security_middleware(request: Request, call_next):
 # Initialize Bedrock client
 bedrock_client = boto3.client(
     service_name="bedrock-runtime",
-    region_name=os.getenv("DEFAULT_AWS_REGION", "us-east-1")
+    region_name=os.environ["DEFAULT_AWS_REGION"]
 )
 
 # Bedrock model selection
-BEDROCK_MODEL_ID = os.getenv("BEDROCK_MODEL_ID", "us.amazon.nova-lite-v1:0")
+BEDROCK_MODEL_ID = os.environ["BEDROCK_MODEL_ID"]
 
 # Memory storage configuration
-USE_S3 = os.getenv("USE_S3", "false").lower() == "true"
-S3_BUCKET = os.getenv("S3_BUCKET", "")
-MEMORY_DIR = os.getenv("MEMORY_DIR", "../memory")
+USE_S3 = os.environ["USE_S3"].lower() == "true"
+S3_BUCKET = os.environ["S3_BUCKET"]
+MEMORY_DIR = os.environ["MEMORY_DIR"]
 
 # Initialize S3 client if needed
 if USE_S3:

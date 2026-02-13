@@ -56,7 +56,7 @@ cd ../frontend
 echo "📝 Setting environment for production..."
 cat > .env.production <<EOF
 NEXT_PUBLIC_API_URL=$API_URL
-NEXT_PUBLIC_API_KEY=${NEXT_PUBLIC_API_KEY:-}
+NEXT_PUBLIC_API_KEY=${APP_API_KEY:-}
 EOF
 
 npm install
