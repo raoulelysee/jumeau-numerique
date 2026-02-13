@@ -1,5 +1,6 @@
-# Data source to get current AWS account ID
+# Data sources
 data "aws_caller_identity" "current" {}
+data "aws_region" "current" {}
 
 locals {
   aliases = var.use_custom_domain && var.root_domain != "" ? [
@@ -133,11 +134,15 @@ resource "aws_lambda_function" "api" {
 
   environment {
     variables = {
-      CORS_ORIGINS     = var.use_custom_domain ? "https://${var.root_domain},https://www.${var.root_domain}" : "https://${aws_cloudfront_distribution.main.domain_name}"
-      S3_BUCKET        = aws_s3_bucket.memory.id
-      USE_S3           = "true"
-      BEDROCK_MODEL_ID = var.bedrock_model_id
-      APP_API_KEY      = var.app_api_key
+      CORS_ORIGINS      = var.use_custom_domain ? "https://${var.root_domain},https://www.${var.root_domain}" : "https://${aws_cloudfront_distribution.main.domain_name}"
+      APP_API_KEY       = var.app_api_key
+      RATE_LIMIT_MAX    = tostring(var.api_throttle_burst_limit)
+      RATE_LIMIT_WINDOW = "60"
+      DEFAULT_AWS_REGION = data.aws_region.current.name
+      BEDROCK_MODEL_ID  = var.bedrock_model_id
+      USE_S3            = "true"
+      S3_BUCKET         = aws_s3_bucket.memory.id
+      MEMORY_DIR        = "/tmp/memory"
     }
   }
 
