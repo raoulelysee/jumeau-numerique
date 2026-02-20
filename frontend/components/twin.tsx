@@ -237,7 +237,6 @@ export default function Twin() {
                         placeholder="Ask me anything..."
                         className="flex-1 px-4 py-3 bg-zinc-800 border border-zinc-700/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 text-white placeholder-zinc-500 text-sm transition-all"
                         disabled={isLoading}
-                        autoFocus
                     />
                     <button
                         onClick={sendMessage}
