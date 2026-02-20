@@ -115,7 +115,7 @@ export default function Twin() {
                         <h2 className="text-base font-medium text-white">
                             Digital Twin Assistant
                         </h2>
-                        <p className="text-xs text-zinc-400">Ask me about my experience & skills</p>
+                        <p className="text-xs text-zinc-400">Explore my security frameworks and AI architectures</p>
                     </div>
                 </div>
             </div>
@@ -227,7 +227,7 @@ export default function Twin() {
 
             {/* Input */}
             <div className="border-t border-zinc-800 p-4 bg-zinc-900/50">
-                <div className="flex gap-3">
+                <div className="flex gap-3 mb-2">
                     <input
                         ref={inputRef}
                         type="text"
@@ -247,6 +247,9 @@ export default function Twin() {
                         <Send className="w-5 h-5" />
                     </button>
                 </div>
+                <p className="text-[10px] text-zinc-600 text-center mt-1">
+                    Next.js · AWS Bedrock · Graph RAG · Qdrant · Sovereign Architecture
+                </p>
             </div>
         </div>
     );

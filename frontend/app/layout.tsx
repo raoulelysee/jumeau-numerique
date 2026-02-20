@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Raoul Elysee | Digital Twin",
-  description: "AI-powered digital twin of Raoul Elysee - Cybersecurity Engineer & AI Specialist",
+  title: "Raoul Elysée | Senior Cybersecurity Architect",
+  description: "Senior Cybersecurity Architect specializing in IAM, AI Security, Cloud Architecture, and Enterprise Risk Management. Based in Montréal, QC.",
 };
 
 export default function RootLayout({
