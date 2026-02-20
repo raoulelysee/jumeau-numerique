@@ -30,12 +30,33 @@ app.add_middleware(
 )
 
 # API Key for frontend authentication
-APP_API_KEY = os.environ["APP_API_KEY"]
+APP_API_KEY = os.environ.get("APP_API_KEY", "")
 
 # Rate limiting: track requests per IP
 RATE_LIMIT_MAX = int(os.environ["RATE_LIMIT_MAX"])
 RATE_LIMIT_WINDOW = int(os.environ["RATE_LIMIT_WINDOW"])
 rate_limit_store: dict[str, list[float]] = defaultdict(list)
+
+# Token budget: max tokens per minute across all users
+TOKEN_BUDGET_PER_MINUTE = 15_000
+_token_store: dict = {"minute": "", "used": 0}
+
+def _current_minute() -> str:
+    return time.strftime("%Y-%m-%dT%H:%M")
+
+def _within_token_budget() -> bool:
+    minute = _current_minute()
+    if _token_store["minute"] != minute:
+        _token_store["minute"] = minute
+        _token_store["used"] = 0
+    return _token_store["used"] < TOKEN_BUDGET_PER_MINUTE
+
+def _record_tokens(tokens: int):
+    minute = _current_minute()
+    if _token_store["minute"] != minute:
+        _token_store["minute"] = minute
+        _token_store["used"] = 0
+    _token_store["used"] += tokens
 
 
 @app.middleware("http")
@@ -167,7 +188,9 @@ def call_bedrock(conversation: List[Dict], user_message: str) -> str:
                 "topP": 0.9
             }
         )
-        return response["output"]["message"]["content"][0]["text"]
+        text = response["output"]["message"]["content"][0]["text"]
+        tokens_used = response.get("usage", {}).get("totalTokens", 0)
+        return text, tokens_used
 
     except ClientError as e:
         error_code = e.response['Error']['Code']
@@ -209,8 +232,16 @@ async def chat(request: ChatRequest):
         # Load conversation history
         conversation = load_conversation(session_id)
 
+        # Check token budget before calling Bedrock
+        if not _within_token_budget():
+            return ChatResponse(
+                response="Service temporarily unavailable due to high demand. Please try again in a minute.",
+                session_id=session_id
+            )
+
         # Call Bedrock for response
-        assistant_response = call_bedrock(conversation, sanitized_message)
+        assistant_response, tokens_used = call_bedrock(conversation, sanitized_message)
+        _record_tokens(tokens_used)
 
         # Update conversation history
         conversation.append(
