@@ -27,3 +27,32 @@ output "api_gateway_url" {
     description = "Root URL of the production site"
     value       = var.use_custom_domain ? "https://${var.root_domain}" : ""
   }
+
+  # ── Namecheap DNS records (add these manually) ──────────────────────────
+
+  output "namecheap_acm_validation_records" {
+    description = "CNAME records to add in Namecheap Advanced DNS for ACM certificate validation"
+    value = var.use_custom_domain ? [
+      for dvo in aws_acm_certificate.site[0].domain_validation_options : {
+        host  = replace(dvo.resource_record_name, ".${var.root_domain}.", "")
+        type  = dvo.resource_record_type
+        value = dvo.resource_record_value
+      }
+    ] : []
+  }
+
+  output "namecheap_site_records" {
+    description = "CNAME records to add in Namecheap Advanced DNS to point domain to CloudFront"
+    value = var.use_custom_domain ? [
+      {
+        host  = "@"
+        type  = "ALIAS"
+        value = aws_cloudfront_distribution.main.domain_name
+      },
+      {
+        host  = "www"
+        type  = "CNAME"
+        value = aws_cloudfront_distribution.main.domain_name
+      }
+    ] : []
+  }
