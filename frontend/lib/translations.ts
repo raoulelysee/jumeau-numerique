@@ -1,5 +1,5 @@
 export type Lang = 'en' | 'fr';
-export type BadgeKey = 'Live' | 'In Development' | 'Commercial' | 'Research';
+export type BadgeKey = 'Live' | 'In Development' | 'Commercial' | 'Research' | 'Enterprise';
 
 export interface ExpertiseArea {
   title: string;
@@ -160,11 +160,18 @@ const en: Translations = {
         badge: 'In Development',
       },
       {
-        title: 'CanGuard Gateway',
+        title: 'Strategic Investment Governance',
         description:
-          'Data sovereignty solution for Quebec organizations (health, finance, government) exposed to the US CLOUD Act and Loi 25. Encryption gateway with agentic AI for anomaly detection and compliance automation via Microsoft Graph API.',
-        tags: ['Data Sovereignty', 'Agentic AI', 'Loi 25', 'Encryption', 'Graph API'],
-        badge: 'Commercial',
+          'Within a macro allocation team at a major financial institution, evaluated projects against organizational strategic objectives to validate continued funding. Delivered structured analysis and strategic advisory to executive committees on investment prioritization and program governance.',
+        tags: ['Strategic Advisory', 'Investment Governance', 'Executive Committees', 'Macro Allocation', 'Portfolio Management'],
+        badge: 'Enterprise',
+      },
+      {
+        title: 'Enterprise Security Governance Program',
+        description:
+          'Implemented NIST security controls across enterprise operations. Directed an external consulting firm mandate to design an operational governance model adapted to organizational needs — covering process optimization, control framework design, and strategic security advisory at the executive level.',
+        tags: ['NIST Controls', 'Governance Model', 'Operations Optimization', 'Executive Advisory', 'External Firm Direction'],
+        badge: 'Enterprise',
       },
       {
         title: 'Voice AI & Edge Lab',
@@ -187,6 +194,7 @@ const en: Translations = {
     'In Development': 'In Development',
     Commercial: 'Commercial',
     Research: 'Research',
+    Enterprise: 'Enterprise',
   },
   philosophy: {
     q1: 'Security is not a control function.',
@@ -300,11 +308,18 @@ const fr: Translations = {
         badge: 'In Development',
       },
       {
-        title: 'Passerelle CanGuard',
+        title: 'Gouvernance Stratégique des Investissements',
         description:
-          'Solution de souveraineté des données pour les organisations québécoises (santé, finance, gouvernement) exposées au CLOUD Act américain et à la Loi 25. Passerelle de chiffrement avec IA agentique pour la détection d\u2019anomalies et l\u2019automatisation de la conformité via l\u2019API Microsoft Graph.',
-        tags: ['Souveraineté des données', 'IA Agentique', 'Loi 25', 'Chiffrement', 'Graph API'],
-        badge: 'Commercial',
+          'Au sein d\u2019une équipe de macro-allocation dans une grande institution financière, évaluation des projets en regard des objectifs stratégiques de l\u2019organisation pour valider la continuité du financement. Analyses structurées et conseils stratégiques aux comités exécutifs sur la priorisation des investissements et la gouvernance de portefeuille.',
+        tags: ['Conseil stratégique', 'Gouvernance des investissements', 'Comités exécutifs', 'Macro-allocation', 'Gestion de portefeuille'],
+        badge: 'Enterprise',
+      },
+      {
+        title: 'Programme de Gouvernance Sécurité en Entreprise',
+        description:
+          'Implémentation de contrôles de sécurité NIST à l\u2019échelle de l\u2019entreprise. Direction d\u2019un mandat de firme externe pour la conception d\u2019un modèle opérationnel de gouvernance adapté aux besoins organisationnels — incluant l\u2019optimisation des processus, la conception de cadres de contrôle et le conseil stratégique en sécurité au niveau exécutif.',
+        tags: ['Contrôles NIST', 'Modèle de gouvernance', 'Optimisation opérationnelle', 'Conseil exécutif', 'Direction firme externe'],
+        badge: 'Enterprise',
       },
       {
         title: 'IA Vocale & Laboratoire Edge',
@@ -327,6 +342,7 @@ const fr: Translations = {
     'In Development': 'En développement',
     Commercial: 'Commercial',
     Research: 'Recherche',
+    Enterprise: 'Entreprise',
   },
   philosophy: {
     q1: 'La sécurité n\u2019est pas une fonction de contrôle.',

@@ -23,6 +23,7 @@ const badgeStyle: Record<BadgeKey, string> = {
   'In Development': 'bg-amber-500/15 text-amber-400 border border-amber-500/20',
   Commercial: 'bg-blue-500/15 text-blue-400 border border-blue-500/20',
   Research: 'bg-zinc-700/50 text-zinc-400 border border-zinc-600/30',
+  Enterprise: 'bg-violet-500/15 text-violet-400 border border-violet-500/20',
 };
 
 export default function Home() {
