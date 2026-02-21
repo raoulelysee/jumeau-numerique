@@ -85,9 +85,9 @@ const en: Translations = {
   },
   hero: {
     badge: 'Building Sovereign AI Architectures',
-    subtitle: 'Senior Cybersecurity Architect\u00a0\u00a0·\u00a0\u00a0IAM & AI Security Specialist',
+    subtitle: 'Security & AI Transformation Expert\u00a0\u00a0·\u00a0\u00a0Regulated Financial Industries',
     description:
-      'I design secure and scalable architectures for regulated enterprise environments — combining identity management, threat modeling, cloud security, and AI with deep roots in financial services compliance and GRC governance.',
+      'Systemic architect bridging emerging AI technologies with regulatory compliance and enterprise risk reduction — aligning security capabilities with the governance frameworks, fiduciary responsibilities, and strategic objectives of regulated financial and insurance institutions.',
     ctaPrimary: 'Talk to My Digital Twin',
     ctaSecondary: 'View Projects',
   },
@@ -95,7 +95,7 @@ const en: Translations = {
     label: 'About',
     heading: 'Who I Am',
     p1: 'I am a senior cybersecurity professional with 20 years of IT experience, including 10 years as an IT security coordinator and 6 years as a regulatory compliance consultant in pension and insurance sectors. My career began with a college diploma in business administration, followed by studies in computerized management and a university certificate in software development — years spent building web and mobile products with startup teams before pivoting fully into security and governance.',
-    p2: 'My approach bridges strategic advisory and operational execution. I have collaborated with internal audit teams, enterprise architects, domain architects, and executive committees — advancing security maturity, leading GRC programs, and translating regulatory requirements into concrete architecture decisions.',
+    p2: 'My approach bridges strategic advisory and operational execution. I have collaborated with internal audit teams, enterprise architects, domain architects, and executive committees — advancing security maturity, leading GRC programs, and translating regulatory requirements into concrete architecture decisions. This includes a deep understanding of the fiduciary responsibilities and systemic risks inherent to regulated financial and insurance institutions.',
     p3: 'More recently I have developed deep expertise in agentic AI engineering — building multi-agent systems and deploying LLM-powered solutions in production across AWS, Azure, GCP, Vercel, and private VPS environments, while applying security principles (guardrails, memory management, least privilege) to every AI architecture I design. I also maintain personal AI infrastructures connected to a broad toolset to amplify creativity, accelerate ideation, and explore how AI can genuinely augment human and production capabilities.',
     p4: "I am currently completing a Bachelor's degree by accumulation in Cybersecurity at Polytechnique Montréal (evenings). Outside of work and studies, I spend time with my family, follow finance, economics, and current events closely, train at the gym, and enjoy cycling in the summer and hiking through the forest.",
     stats: [
@@ -118,7 +118,7 @@ const en: Translations = {
       {
         title: 'Governance, Risk & Compliance',
         description:
-          '6 years as regulatory compliance consultant in pension and insurance sectors, working alongside internal audit, enterprise architects, and executive committees across the 1st and 2nd lines of defense. Delivered continuous business process improvement programs and operational guides grounded in regulatory and normative frameworks (NIST, ISO 27001, PCI DSS), with associated controls, KPIs, and KCIs to track compliance maturity over time.',
+          '6 years as regulatory compliance consultant in pension and insurance sectors at Canada Life and London Life, holding roles across both the 1st and 2nd lines of defense alongside internal audit, enterprise architects, and executive committees. Deep understanding of fiduciary responsibilities and systemic risks inherent to regulated financial institutions. Delivered continuous improvement programs and operational guides grounded in NIST, ISO 27001, and PCI DSS, with controls, KPIs, and KCIs to track compliance maturity in highly regulated environments.',
         tags: ['NIST', 'ISO 27001', 'PCI DSS', 'GRC', 'Risk Analysis', 'Compliance', 'Executive Advisory'],
       },
       {
@@ -136,8 +136,8 @@ const en: Translations = {
       {
         title: 'Cloud Architecture & MLOps',
         description:
-          'End-to-end AI deployment on AWS (CloudFront, Lambda, Bedrock), Microsoft Azure (Container Apps), Cloudflare Pages, and Vercel. Infrastructure as Code with Terraform and GitHub Actions CI/CD.',
-        tags: ['AWS', 'Azure', 'Cloudflare Pages', 'Terraform', 'GitHub Actions'],
+          'End-to-end AI deployment on AWS, Azure, GCP, Vercel, and private VPS environments — including self-hosted open-source vector databases and RAG systems for data sovereignty use cases. Infrastructure as Code with Terraform and GitHub Actions CI/CD.',
+        tags: ['AWS / Azure / GCP', 'Private VPS', 'Data Sovereignty', 'Terraform', 'GitHub Actions'],
       },
     ],
   },
@@ -160,17 +160,17 @@ const en: Translations = {
         badge: 'In Development',
       },
       {
-        title: 'Business Security Architect – Strategic Investment Governance',
+        title: 'Business & Enterprise Architect – Security Governance',
         description:
-          'Strategic advisory to executive committees on security investment prioritization, aligned with enterprise risk reduction and organizational objectives. Validated project relevance and funding continuity through structured value and risk posture impact analyses. Directed the project selection process to ensure synergy between technological capabilities and the institution\'s business ambitions.',
-        tags: ['Strategic Advisory', 'Executive Committees', 'Macro Allocation', 'Portfolio Governance', 'Risk Posture'],
+          'Business and enterprise architecture roles within the governance function of a major financial institution. Strategic advisory to executive committees on security investment prioritization aligned with enterprise risk reduction. Validated project relevance and funding continuity through structured value and risk posture impact analyses. Directed the project selection process to ensure alignment between technological capabilities and the institution\'s business ambitions.',
+        tags: ['Business Architecture', 'Enterprise Architecture', 'Strategic Advisory', 'Executive Committees', 'Portfolio Governance'],
         badge: 'Enterprise',
       },
       {
-        title: 'Enterprise Security Governance Program',
+        title: 'Security & Systemic Risk Governance Program',
         description:
-          'Strategic direction of GRC and IAM governance, including definition of policies, standards, and control frameworks based on NIST, CIS, and TOGAF. Operationalized security through vulnerability management programs and DevSecOps pipeline hardening (SCA, SAST, DAST). Designed IAM processes and assessed organizational maturity. Authored security guides and RFP security requirements for enterprise procurement.',
-        tags: ['NIST / CIS / TOGAF', 'GRC & IAM Governance', 'DevSecOps', 'Vulnerability Management', 'Policy & Standards'],
+          'Strategic direction of GRC and IAM governance in regulated financial environments, under NIST, CIS, and TOGAF frameworks. Governed complex stakeholder ecosystems — from board-level oversight to cross-functional technical teams. Operationalized security through vulnerability management programs and DevSecOps pipelines (SCA, SAST, DAST). Designed IAM processes, assessed organizational maturity, and authored security guides and RFP security requirements.',
+        tags: ['NIST / CIS / TOGAF', 'Systemic Risk Governance', 'Stakeholder Management', 'GRC & IAM', 'DevSecOps'],
         badge: 'Enterprise',
       },
       {
@@ -233,9 +233,9 @@ const fr: Translations = {
   },
   hero: {
     badge: 'Conception d\u2019architectures IA souveraines',
-    subtitle: 'Architecte Cybersécurité Senior\u00a0\u00a0·\u00a0\u00a0Spécialiste IAM & Sécurité IA',
+    subtitle: 'Expert en Transformation Sécurité & IA\u00a0\u00a0·\u00a0\u00a0Industries Financières Régulées',
     description:
-      'Je conçois des architectures sécurisées et évolutives pour des environnements d\u2019entreprise régulés — en combinant gestion des identités, modélisation des menaces, sécurité infonuagique et IA, avec des racines profondes en conformité réglementaire et gouvernance GRC dans les services financiers.',
+      'Architecte systémique alignant les technologies IA émergentes sur la conformité réglementaire et la réduction du risque d\u2019entreprise — harmonisant les capacités de sécurité avec les cadres de gouvernance, la responsabilité fiduciaire et les objectifs stratégiques des institutions financières et d\u2019assurance régulées.',
     ctaPrimary: 'Parler à mon Jumeau Numérique',
     ctaSecondary: 'Voir les projets',
   },
@@ -243,7 +243,7 @@ const fr: Translations = {
     label: 'À propos',
     heading: 'Qui je suis',
     p1: 'Je suis un professionnel senior en cybersécurité avec 20 ans d\u2019expérience en TI, dont 10 ans comme coordonnateur de sécurité informatique et 6 ans comme consultant en conformité réglementaire dans les secteurs des régimes de retraite et de l\u2019assurance. Mon parcours a débuté par un DEC en techniques de gestion, suivi d\u2019études en gestion informatisée et d\u2019un certificat universitaire en développement logiciel — des années consacrées à bâtir des produits web et mobiles au sein d\u2019équipes startup, avant de me concentrer pleinement sur la sécurité et la gouvernance.',
-    p2: 'Mon approche conjugue conseil stratégique et exécution opérationnelle. J\u2019ai collaboré avec des équipes d\u2019audit interne, des architectes d\u2019entreprise, des architectes de domaine et des comités exécutifs — pour faire progresser la maturité en sécurité, piloter des programmes GRC et traduire les exigences réglementaires en décisions d\u2019architecture concrètes.',
+    p2: 'Mon approche conjugue conseil stratégique et exécution opérationnelle. J\u2019ai collaboré avec des équipes d\u2019audit interne, des architectes d\u2019entreprise, des architectes de domaine et des comités exécutifs — pour faire progresser la maturité en sécurité, piloter des programmes GRC et traduire les exigences réglementaires en décisions d\u2019architecture concrètes. Cela inclut une compréhension approfondie des responsabilités fiduciaires et des risques systémiques propres aux institutions financières et d\u2019assurance régulées.',
     p3: 'Plus récemment, j\u2019ai développé une expertise approfondie en ingénierie de l\u2019IA agentique — en construisant des systèmes multi-agents et en déployant des solutions LLM en production sur AWS, Azure, GCP, Vercel et des environnements VPS privés, tout en appliquant mes principes de sécurité (guardrails, gestion de la mémoire, moindre privilège) à chaque architecture IA que je conçois. Je maintiens également des infrastructures IA personnelles connectées à un large écosystème d\u2019outils, pour amplifier ma créativité, accélérer la concrétisation de mes idées et explorer comment l\u2019IA peut réellement augmenter les capacités humaines et de production.',
     p4: 'Je complète actuellement un baccalauréat par cumul en cybersécurité à Polytechnique Montréal (cours du soir). En dehors du travail et des études, je passe du temps avec ma famille, je m\u2019intéresse beaucoup à la finance, l\u2019économie et l\u2019actualité, je m\u2019entraîne au gym et j\u2019aime faire du vélo l\u2019été et marcher en forêt.',
     stats: [
@@ -266,7 +266,7 @@ const fr: Translations = {
       {
         title: 'Gouvernance, Risque & Conformité',
         description:
-          '6 ans comme consultant en conformité réglementaire dans les secteurs des régimes de retraite et de l\u2019assurance, aux côtés de l\u2019audit interne, des architectes d\u2019entreprise et des comités exécutifs, au sein des 1re et 2e lignes de défense. Programmes d\u2019amélioration continue des processus d\u2019affaires et guides opérationnels ancrés dans des cadres réglementaires et normatifs (NIST, ISO 27001, PCI DSS), avec contrôles associés, KPIs et KCIs pour suivre l\u2019évolution de la maturité.',
+          '6 ans comme consultant en conformité réglementaire dans les secteurs des régimes de retraite et de l\u2019assurance chez Canada Vie et London Life, occupant des rôles en 1re et 2e ligne de défense, aux côtés de l\u2019audit interne, des architectes d\u2019entreprise et des comités exécutifs. Compréhension approfondie des responsabilités fiduciaires et des risques systémiques propres aux institutions financières régulées. Programmes d\u2019amélioration continue et guides opérationnels ancrés dans NIST, ISO 27001 et PCI DSS, avec contrôles, KPIs et KCIs pour suivre la maturité en environnements hautement régulés.',
         tags: ['NIST', 'ISO 27001', 'PCI DSS', 'GRC', 'Analyse de risque', 'Conformité', 'Conseil exécutif'],
       },
       {
@@ -308,10 +308,10 @@ const fr: Translations = {
         badge: 'In Development',
       },
       {
-        title: 'Architecte d\u2019affaires en cybersécurité \u2013 Gouvernance stratégique des investissements',
+        title: 'Architecte d\u2019affaires & d\u2019entreprise \u2013 Gouvernance Sécurité',
         description:
-          'Conseil stratégique aux comités exécutifs sur la priorisation des investissements en sécurité, alignée sur la réduction du risque d\u2019entreprise et les objectifs stratégiques. Validation de la pertinence et de la continuité du financement des projets de sécurité au travers d\u2019analyses de valeur et d\u2019impact sur la posture de risque. Pilotage du processus de sélection des projets pour garantir une synergie entre les capacités technologiques et les ambitions d\u2019affaires de l\u2019institution.',
-        tags: ['Conseil stratégique', 'Comités exécutifs', 'Macro-allocation', 'Gouvernance de portefeuille', 'Posture de risque'],
+          'Rôles d\u2019architecture d\u2019affaires et d\u2019entreprise au sein de la fonction gouvernance d\u2019une grande institution financière. Conseil stratégique aux comités exécutifs sur la priorisation des investissements en sécurité, alignée sur la réduction du risque d\u2019entreprise. Validation de la pertinence et de la continuité du financement des projets au travers d\u2019analyses de valeur et d\u2019impact sur la posture de risque. Pilotage du processus de sélection pour garantir l\u2019alignement entre capacités technologiques et ambitions d\u2019affaires.',
+        tags: ['Architecture d\u2019affaires', 'Architecture d\u2019entreprise', 'Conseil stratégique', 'Comités exécutifs', 'Gouvernance de portefeuille'],
         badge: 'Enterprise',
       },
       {
