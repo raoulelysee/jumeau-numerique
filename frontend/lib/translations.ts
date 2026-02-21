@@ -1,0 +1,358 @@
+export type Lang = 'en' | 'fr';
+export type BadgeKey = 'Live' | 'In Development' | 'Commercial' | 'Research';
+
+export interface ExpertiseArea {
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+export interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  badge: BadgeKey;
+}
+
+export interface Translations {
+  nav: {
+    about: string;
+    expertise: string;
+    projects: string;
+    digitalTwin: string;
+    contact: string;
+    cta: string;
+  };
+  hero: {
+    badge: string;
+    subtitle: string;
+    description: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+  };
+  about: {
+    label: string;
+    heading: string;
+    p1: string;
+    p2: string;
+    p3: string;
+    p4: string;
+    stats: { value: string; label: string }[];
+  };
+  expertise: {
+    label: string;
+    heading: string;
+    areas: ExpertiseArea[];
+  };
+  projects: {
+    label: string;
+    heading: string;
+    items: Project[];
+  };
+  badgeLabels: Record<BadgeKey, string>;
+  philosophy: {
+    q1: string;
+    q1em: string;
+    q2: string;
+    q2em: string;
+    q3em: string;
+  };
+  digitalTwin: {
+    badge: string;
+    heading: string;
+    description: string;
+  };
+  contact: {
+    label: string;
+    heading: string;
+    description: string;
+    linkedin: string;
+  };
+  footer: {
+    rights: string;
+    tagline: string;
+  };
+}
+
+const en: Translations = {
+  nav: {
+    about: 'About',
+    expertise: 'Expertise',
+    projects: 'Projects',
+    digitalTwin: 'Digital Twin',
+    contact: 'Contact',
+    cta: "Let's Talk",
+  },
+  hero: {
+    badge: 'Building Sovereign AI Architectures',
+    subtitle: 'Senior Cybersecurity Architect\u00a0\u00a0·\u00a0\u00a0IAM & AI Security Specialist',
+    description:
+      'I design secure and scalable AI-driven architectures for enterprise production environments — bridging identity management, threat modeling, cloud security, and artificial intelligence.',
+    ctaPrimary: 'Talk to My Digital Twin',
+    ctaSecondary: 'View Projects',
+  },
+  about: {
+    label: 'About',
+    heading: 'Who I Am',
+    p1: 'I am a senior cybersecurity professional with 20 years of IT experience, including nearly 10 years in information security. I specialize in designing and implementing scalable security capabilities for financial institutions and regulated environments.',
+    p2: 'My approach combines strategic vision, operational execution, and architecture-level thinking. I have advised executive committees on security maturity, led GRC programs across the 1st and 2nd lines of defense, and driven cloud security transformations.',
+    p3: 'More recently I have developed deep expertise in agentic AI engineering — building multi-agent systems and deploying LLM-powered solutions in production on AWS, while applying my security principles (guardrails, memory management, least privilege) to every AI architecture I design.',
+    p4: "I am currently completing a Bachelor's in Cybersecurity at Polytechnique Montréal (evenings), reinforcing my technical and academic foundation.",
+    stats: [
+      { value: '20+', label: 'Years in IT' },
+      { value: '10+', label: 'Years in Cybersecurity' },
+      { value: '40+', label: 'LLMs Tested (open source + cloud)' },
+      { value: '2027', label: 'BSc Cybersecurity (in progress)' },
+    ],
+  },
+  expertise: {
+    label: 'Expertise',
+    heading: 'Core Competencies',
+    areas: [
+      {
+        title: 'Security Architecture & IAM',
+        description:
+          'Enterprise IAM/CIAM strategy, Zero Trust implementation, privileged access controls, and threat modeling (STRIDE/MITRE ATT&CK). Secure design from architecture phase through production.',
+        tags: ['Zero Trust', 'IAM / CIAM', 'STRIDE', 'Threat Modeling', 'MITRE ATT&CK'],
+      },
+      {
+        title: 'Governance, Risk & Compliance',
+        description:
+          'Nearly 10 years advising financial institutions as 1st and 2nd line of defense. NIST-based program design, risk quantification for investment decisions, regulatory compliance, and executive security advisory.',
+        tags: ['NIST', 'ISO 27001', 'PCI DSS', 'GRC', 'Risk Analysis', 'Compliance', 'Executive Advisory'],
+      },
+      {
+        title: 'AI & Agentic Engineering',
+        description:
+          'Production multi-agent systems using OpenAI Agent SDK, CrewAI, LangGraph, and AutoGen. Hands-on experience with 40+ LLMs — open source (Ollama) and cloud. Vector databases, Graph RAG (Neo4j + Qdrant), and MCP integrations.',
+        tags: ['Graph RAG', 'Vector DB', 'Multi-Agent', '40+ LLMs', 'MCP'],
+      },
+      {
+        title: 'DevSecOps & Application Security',
+        description:
+          'Secure CI/CD pipelines (Azure DevOps), OWASP Top 10 remediation, vulnerability management with risk-based prioritization. 10+ years of software development across web (React, Next.js), mobile (Flutter), and automation (Python).',
+        tags: ['OWASP', 'DevSecOps', 'Python', 'React / Next.js', 'Flutter'],
+      },
+      {
+        title: 'Cloud Architecture & MLOps',
+        description:
+          'End-to-end AI deployment on AWS (CloudFront, Lambda, Bedrock), Microsoft Azure (Container Apps), Cloudflare Pages, and Vercel. Infrastructure as Code with Terraform and GitHub Actions CI/CD.',
+        tags: ['AWS', 'Azure', 'Cloudflare Pages', 'Terraform', 'GitHub Actions'],
+      },
+    ],
+  },
+  projects: {
+    label: 'Projects',
+    heading: 'Selected Work',
+    items: [
+      {
+        title: 'AI Digital Twin',
+        description:
+          'Personal AI representative on a fully serverless AWS architecture: CloudFront, API Gateway, S3, Lambda, and Amazon Bedrock for LLM inference. Provisioned with Terraform and automated through GitHub Actions CI/CD.',
+        tags: ['AWS Bedrock', 'Lambda', 'Terraform', 'Next.js', 'GitHub Actions'],
+        badge: 'Live',
+      },
+      {
+        title: 'Legal Brain — Graph RAG',
+        description:
+          'AI legal assistant trained on Quebec and Canadian law using Graph RAG: a Neo4j knowledge graph combined with a Qdrant vector database for semantic retrieval. Delivers precise article-level citations. Targeting LegalTech commercialization.',
+        tags: ['Graph RAG', 'Neo4j', 'Qdrant', 'LangGraph', 'Canadian Law'],
+        badge: 'In Development',
+      },
+      {
+        title: 'CanGuard Gateway',
+        description:
+          'Data sovereignty solution for Quebec organizations (health, finance, government) exposed to the US CLOUD Act and Loi 25. Encryption gateway with agentic AI for anomaly detection and compliance automation via Microsoft Graph API.',
+        tags: ['Data Sovereignty', 'Agentic AI', 'Loi 25', 'Encryption', 'Graph API'],
+        badge: 'Commercial',
+      },
+      {
+        title: 'Voice AI & Edge Lab',
+        description:
+          'Production voice cloning app deployed on Hugging Face. Separately: on-device inference experiments with a Raspberry Pi 5 and AI Hat+2 for real-time computer vision and a Pi Dog robot — stress-testing open source models at the edge.',
+        tags: ['Voice Cloning', 'Raspberry Pi 5', 'AI Hat+2', 'Edge AI', 'Hugging Face'],
+        badge: 'Research',
+      },
+      {
+        title: 'Agentic Systems Portfolio',
+        description:
+          'Engineering across all major agentic frameworks: OpenAI Agent SDK, CrewAI, LangGraph, AutoGen, and MCP (40+ tool integrations). Includes deep research agents, SDR sales agents, simulated dev teams via Docker, and a financial analysis floor.',
+        tags: ['OpenAI SDK', 'CrewAI', 'LangGraph', 'AutoGen', 'MCP'],
+        badge: 'Research',
+      },
+    ],
+  },
+  badgeLabels: {
+    Live: 'Live',
+    'In Development': 'In Development',
+    Commercial: 'Commercial',
+    Research: 'Research',
+  },
+  philosophy: {
+    q1: 'Security is not a control function.',
+    q1em: 'It is a business enabler.',
+    q2: 'Artificial Intelligence is not a replacement.',
+    q2em: 'It is a force multiplier.',
+    q3em: 'Identity is the new perimeter.',
+  },
+  digitalTwin: {
+    badge: 'AI-Powered',
+    heading: 'Talk to My Digital Twin',
+    description:
+      'This AI representative can discuss my experience, projects, architecture decisions, and expertise — in English or French — as if you were speaking with me directly.',
+  },
+  contact: {
+    label: 'Contact',
+    heading: "Let's Connect",
+    description:
+      'Interested in discussing security architecture, AI-driven security transformation, or leadership opportunities? I would love to hear from you.',
+    linkedin: 'LinkedIn Profile',
+  },
+  footer: {
+    rights: '© 2025 Raoul Elysée. All rights reserved.',
+    tagline: 'Cybersecurity Architect\u00a0·\u00a0AI Specialist\u00a0·\u00a0Montréal, QC',
+  },
+};
+
+const fr: Translations = {
+  nav: {
+    about: 'À propos',
+    expertise: 'Expertise',
+    projects: 'Projets',
+    digitalTwin: 'Jumeau Numérique',
+    contact: 'Contact',
+    cta: 'Contactez-moi',
+  },
+  hero: {
+    badge: 'Conception d\u2019architectures IA souveraines',
+    subtitle: 'Architecte Cybersécurité Senior\u00a0\u00a0·\u00a0\u00a0Spécialiste IAM & Sécurité IA',
+    description:
+      'Je conçois des architectures IA sécurisées et évolutives pour des environnements de production entreprise — en unissant la gestion des identités, la modélisation des menaces, la sécurité infonuagique et l\u2019intelligence artificielle.',
+    ctaPrimary: 'Parler à mon Jumeau Numérique',
+    ctaSecondary: 'Voir les projets',
+  },
+  about: {
+    label: 'À propos',
+    heading: 'Qui je suis',
+    p1: 'Je suis un professionnel senior en cybersécurité avec 20 ans d\u2019expérience en TI, dont près de 10 ans en sécurité de l\u2019information. Je me spécialise dans la conception et la mise en œuvre de capacités de sécurité évolutives pour les institutions financières et les environnements réglementés.',
+    p2: 'Mon approche combine vision stratégique, exécution opérationnelle et réflexion au niveau de l\u2019architecture. J\u2019ai conseillé des comités exécutifs sur la maturité en sécurité, dirigé des programmes GRC au sein des 1re et 2e lignes de défense, et piloté des transformations de sécurité infonuagique.',
+    p3: 'Plus récemment, j\u2019ai développé une expertise approfondie en ingénierie de l\u2019IA agentique — en construisant des systèmes multi-agents et en déployant des solutions alimentées par des LLMs en production sur AWS, tout en appliquant mes principes de sécurité (guardrails, gestion de la mémoire, moindre privilège) à chaque architecture IA que je conçois.',
+    p4: 'Je complète actuellement un baccalauréat en cybersécurité à Polytechnique Montréal (cours du soir), consolidant mes fondements techniques et académiques.',
+    stats: [
+      { value: '20+', label: 'Ans en TI' },
+      { value: '10+', label: 'Ans en Cybersécurité' },
+      { value: '40+', label: 'LLMs testés (open source + cloud)' },
+      { value: '2027', label: 'Bac Cybersécurité (en cours)' },
+    ],
+  },
+  expertise: {
+    label: 'Expertise',
+    heading: 'Compétences clés',
+    areas: [
+      {
+        title: 'Architecture Sécurité & IAM',
+        description:
+          'Stratégie IAM/CIAM entreprise, implémentation Zero Trust, contrôles d\u2019accès privilégiés et modélisation des menaces (STRIDE/MITRE ATT&CK). Conception sécurisée depuis la phase d\u2019architecture jusqu\u2019en production.',
+        tags: ['Zero Trust', 'IAM / CIAM', 'STRIDE', 'Threat Modeling', 'MITRE ATT&CK'],
+      },
+      {
+        title: 'Gouvernance, Risque & Conformité',
+        description:
+          'Près de 10 ans de conseil aux institutions financières en tant que 1re et 2e ligne de défense. Conception de programmes NIST, quantification du risque pour les décisions d\u2019investissement, conformité réglementaire et conseil exécutif en sécurité.',
+        tags: ['NIST', 'ISO 27001', 'PCI DSS', 'GRC', 'Analyse de risque', 'Conformité', 'Conseil exécutif'],
+      },
+      {
+        title: 'IA & Ingénierie Agentique',
+        description:
+          'Systèmes multi-agents en production avec OpenAI Agent SDK, CrewAI, LangGraph et AutoGen. Expérience avec plus de 40 LLMs — open source (Ollama) et cloud. Bases de données vectorielles, Graph RAG (Neo4j + Qdrant) et intégrations MCP.',
+        tags: ['Graph RAG', 'Base vectorielle', 'Multi-Agent', '40+ LLMs', 'MCP'],
+      },
+      {
+        title: 'DevSecOps & Sécurité Applicative',
+        description:
+          'Pipelines CI/CD sécurisés (Azure DevOps), remédiation OWASP Top 10, gestion des vulnérabilités avec priorisation par le risque. Plus de 10 ans de développement logiciel : web (React, Next.js), mobile (Flutter) et automatisation (Python).',
+        tags: ['OWASP', 'DevSecOps', 'Python', 'React / Next.js', 'Flutter'],
+      },
+      {
+        title: 'Architecture Cloud & MLOps',
+        description:
+          'Déploiement IA de bout en bout sur AWS (CloudFront, Lambda, Bedrock), Microsoft Azure (Container Apps), Cloudflare Pages et Vercel. Infrastructure as Code avec Terraform et CI/CD via GitHub Actions.',
+        tags: ['AWS', 'Azure', 'Cloudflare Pages', 'Terraform', 'GitHub Actions'],
+      },
+    ],
+  },
+  projects: {
+    label: 'Projets',
+    heading: 'Réalisations',
+    items: [
+      {
+        title: 'Jumeau Numérique IA',
+        description:
+          'Représentant IA personnel sur une architecture AWS entièrement serverless : CloudFront, API Gateway, S3, Lambda et Amazon Bedrock pour l\u2019inférence LLM. Provisionné avec Terraform et automatisé via GitHub Actions CI/CD.',
+        tags: ['AWS Bedrock', 'Lambda', 'Terraform', 'Next.js', 'GitHub Actions'],
+        badge: 'Live',
+      },
+      {
+        title: 'Legal Brain — Graph RAG',
+        description:
+          'Assistant juridique IA entraîné sur le droit québécois et canadien via Graph RAG : un graphe de connaissances Neo4j combiné à une base vectorielle Qdrant pour la récupération sémantique. Fournit des citations précises au niveau des articles. Ciblant une commercialisation LegalTech.',
+        tags: ['Graph RAG', 'Neo4j', 'Qdrant', 'LangGraph', 'Droit canadien'],
+        badge: 'In Development',
+      },
+      {
+        title: 'Passerelle CanGuard',
+        description:
+          'Solution de souveraineté des données pour les organisations québécoises (santé, finance, gouvernement) exposées au CLOUD Act américain et à la Loi 25. Passerelle de chiffrement avec IA agentique pour la détection d\u2019anomalies et l\u2019automatisation de la conformité via l\u2019API Microsoft Graph.',
+        tags: ['Souveraineté des données', 'IA Agentique', 'Loi 25', 'Chiffrement', 'Graph API'],
+        badge: 'Commercial',
+      },
+      {
+        title: 'IA Vocale & Laboratoire Edge',
+        description:
+          'Application de clonage vocal en production déployée sur Hugging Face. Parallèlement : expériences d\u2019inférence sur appareil avec un Raspberry Pi 5 et AI Hat+2 pour la vision en temps réel et un robot Pi Dog — tests intensifs de modèles open source en conditions edge.',
+        tags: ['Clonage vocal', 'Raspberry Pi 5', 'AI Hat+2', 'Edge AI', 'Hugging Face'],
+        badge: 'Research',
+      },
+      {
+        title: 'Portfolio Systèmes Agentiques',
+        description:
+          'Ingénierie sur tous les principaux frameworks agentiques : OpenAI Agent SDK, CrewAI, LangGraph, AutoGen et MCP (40+ intégrations d\u2019outils). Comprend des agents de recherche, agents SDR commerciaux, équipes de développement simulées via Docker et un plancher d\u2019analyse financière.',
+        tags: ['OpenAI SDK', 'CrewAI', 'LangGraph', 'AutoGen', 'MCP'],
+        badge: 'Research',
+      },
+    ],
+  },
+  badgeLabels: {
+    Live: 'En ligne',
+    'In Development': 'En développement',
+    Commercial: 'Commercial',
+    Research: 'Recherche',
+  },
+  philosophy: {
+    q1: 'La sécurité n\u2019est pas une fonction de contrôle.',
+    q1em: 'C\u2019est un catalyseur de performance.',
+    q2: 'L\u2019intelligence artificielle n\u2019est pas un remplacement.',
+    q2em: 'C\u2019est un multiplicateur de force.',
+    q3em: 'L\u2019identité est le nouveau périmètre.',
+  },
+  digitalTwin: {
+    badge: 'Propulsé par l\u2019IA',
+    heading: 'Parler à mon Jumeau Numérique',
+    description:
+      'Ce représentant IA peut discuter de mon expérience, mes projets, mes décisions d\u2019architecture et mon expertise — en anglais ou en français — comme si vous parliez directement avec moi.',
+  },
+  contact: {
+    label: 'Contact',
+    heading: 'Connectons-nous',
+    description:
+      'Vous souhaitez discuter d\u2019architecture sécurité, de transformation IA ou d\u2019opportunités de leadership ? Je serais ravi d\u2019échanger.',
+    linkedin: 'Profil LinkedIn',
+  },
+  footer: {
+    rights: '© 2025 Raoul Elysée. Tous droits réservés.',
+    tagline: 'Architecte Cybersécurité\u00a0·\u00a0Spécialiste IA\u00a0·\u00a0Montréal, QC',
+  },
+};
+
+const translations: Record<Lang, Translations> = { en, fr };
+export default translations;
