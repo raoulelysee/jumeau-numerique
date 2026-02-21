@@ -87,20 +87,20 @@ const en: Translations = {
     badge: 'Building Sovereign AI Architectures',
     subtitle: 'Senior Cybersecurity Architect\u00a0\u00a0·\u00a0\u00a0IAM & AI Security Specialist',
     description:
-      'I design secure and scalable AI-driven architectures for enterprise production environments — bridging identity management, threat modeling, cloud security, and artificial intelligence.',
+      'I design secure and scalable architectures for regulated enterprise environments — combining identity management, threat modeling, cloud security, and AI with deep roots in financial services compliance and GRC governance.',
     ctaPrimary: 'Talk to My Digital Twin',
     ctaSecondary: 'View Projects',
   },
   about: {
     label: 'About',
     heading: 'Who I Am',
-    p1: 'I am a senior cybersecurity professional with 20 years of IT experience, including nearly 10 years in information security. I specialize in designing and implementing scalable security capabilities for financial institutions and regulated environments.',
-    p2: 'My approach combines strategic vision, operational execution, and architecture-level thinking. I have advised executive committees on security maturity, led GRC programs across the 1st and 2nd lines of defense, and driven cloud security transformations.',
-    p3: 'More recently I have developed deep expertise in agentic AI engineering — building multi-agent systems and deploying LLM-powered solutions in production on AWS, while applying my security principles (guardrails, memory management, least privilege) to every AI architecture I design.',
-    p4: "I am currently completing a Bachelor's in Cybersecurity at Polytechnique Montréal (evenings), reinforcing my technical and academic foundation.",
+    p1: 'I am a senior cybersecurity professional with 20 years of IT experience, including 10 years as an IT security coordinator and 6 years as a regulatory compliance consultant in pension and insurance sectors. My career began with a college diploma in business administration, followed by studies in computerized management and a university certificate in software development — years spent building web and mobile products with startup teams before pivoting fully into security and governance.',
+    p2: 'My approach bridges strategic advisory and operational execution. I have collaborated with internal audit teams, enterprise architects, domain architects, and executive committees — advancing security maturity, leading GRC programs, and translating regulatory requirements into concrete architecture decisions.',
+    p3: 'More recently I have developed deep expertise in agentic AI engineering — building multi-agent systems and deploying LLM-powered solutions in production across AWS, Azure, GCP, Vercel, and private VPS environments, while applying security principles (guardrails, memory management, least privilege) to every AI architecture I design. I also maintain personal AI infrastructures connected to a broad toolset to amplify creativity, accelerate ideation, and explore how AI can genuinely augment human and production capabilities.',
+    p4: "I am currently completing a Bachelor's degree by accumulation in Cybersecurity at Polytechnique Montréal (evenings). Outside of work and studies, I spend time with my family, follow finance, economics, and current events closely, train at the gym, and enjoy cycling in the summer and hiking through the forest.",
     stats: [
       { value: '20+', label: 'Years in IT' },
-      { value: '10+', label: 'Years in Cybersecurity' },
+      { value: '10+', label: 'Years in Cybersecurity & Compliance' },
       { value: '40+', label: 'LLMs Tested (open source + cloud)' },
       { value: '2027', label: 'BSc Cybersecurity (in progress)' },
     ],
@@ -118,7 +118,7 @@ const en: Translations = {
       {
         title: 'Governance, Risk & Compliance',
         description:
-          'Nearly 10 years advising financial institutions as 1st and 2nd line of defense. NIST-based program design, risk quantification for investment decisions, regulatory compliance, and executive security advisory.',
+          '6 years as regulatory compliance consultant in pension and insurance sectors, working alongside internal audit, enterprise architects, and executive committees across the 1st and 2nd lines of defense. Delivered continuous business process improvement programs and operational guides grounded in regulatory and normative frameworks (NIST, ISO 27001, PCI DSS), with associated controls, KPIs, and KCIs to track compliance maturity over time.',
         tags: ['NIST', 'ISO 27001', 'PCI DSS', 'GRC', 'Risk Analysis', 'Compliance', 'Executive Advisory'],
       },
       {
@@ -227,17 +227,17 @@ const fr: Translations = {
     badge: 'Conception d\u2019architectures IA souveraines',
     subtitle: 'Architecte Cybersécurité Senior\u00a0\u00a0·\u00a0\u00a0Spécialiste IAM & Sécurité IA',
     description:
-      'Je conçois des architectures IA sécurisées et évolutives pour des environnements de production entreprise — en unissant la gestion des identités, la modélisation des menaces, la sécurité infonuagique et l\u2019intelligence artificielle.',
+      'Je conçois des architectures sécurisées et évolutives pour des environnements d\u2019entreprise régulés — en combinant gestion des identités, modélisation des menaces, sécurité infonuagique et IA, avec des racines profondes en conformité réglementaire et gouvernance GRC dans les services financiers.',
     ctaPrimary: 'Parler à mon Jumeau Numérique',
     ctaSecondary: 'Voir les projets',
   },
   about: {
     label: 'À propos',
     heading: 'Qui je suis',
-    p1: 'Je suis un professionnel senior en cybersécurité avec 20 ans d\u2019expérience en TI, dont près de 10 ans en sécurité de l\u2019information. Je me spécialise dans la conception et la mise en œuvre de capacités de sécurité évolutives pour les institutions financières et les environnements réglementés.',
-    p2: 'Mon approche combine vision stratégique, exécution opérationnelle et réflexion au niveau de l\u2019architecture. J\u2019ai conseillé des comités exécutifs sur la maturité en sécurité, dirigé des programmes GRC au sein des 1re et 2e lignes de défense, et piloté des transformations de sécurité infonuagique.',
-    p3: 'Plus récemment, j\u2019ai développé une expertise approfondie en ingénierie de l\u2019IA agentique — en construisant des systèmes multi-agents et en déployant des solutions alimentées par des LLMs en production sur AWS, tout en appliquant mes principes de sécurité (guardrails, gestion de la mémoire, moindre privilège) à chaque architecture IA que je conçois.',
-    p4: 'Je complète actuellement un baccalauréat en cybersécurité à Polytechnique Montréal (cours du soir), consolidant mes fondements techniques et académiques.',
+    p1: 'Je suis un professionnel senior en cybersécurité avec 20 ans d\u2019expérience en TI, dont 10 ans comme coordonnateur de sécurité informatique et 6 ans comme consultant en conformité réglementaire dans les secteurs des régimes de retraite et de l\u2019assurance. Mon parcours a débuté par un DEC en techniques de gestion, suivi d\u2019études en gestion informatisée et d\u2019un certificat universitaire en développement logiciel — des années consacrées à bâtir des produits web et mobiles au sein d\u2019équipes startup, avant de me concentrer pleinement sur la sécurité et la gouvernance.',
+    p2: 'Mon approche conjugue conseil stratégique et exécution opérationnelle. J\u2019ai collaboré avec des équipes d\u2019audit interne, des architectes d\u2019entreprise, des architectes de domaine et des comités exécutifs — pour faire progresser la maturité en sécurité, piloter des programmes GRC et traduire les exigences réglementaires en décisions d\u2019architecture concrètes.',
+    p3: 'Plus récemment, j\u2019ai développé une expertise approfondie en ingénierie de l\u2019IA agentique — en construisant des systèmes multi-agents et en déployant des solutions LLM en production sur AWS, Azure, GCP, Vercel et des environnements VPS privés, tout en appliquant mes principes de sécurité (guardrails, gestion de la mémoire, moindre privilège) à chaque architecture IA que je conçois. Je maintiens également des infrastructures IA personnelles connectées à un large écosystème d\u2019outils, pour amplifier ma créativité, accélérer la concrétisation de mes idées et explorer comment l\u2019IA peut réellement augmenter les capacités humaines et de production.',
+    p4: 'Je complète actuellement un baccalauréat par cumul en cybersécurité à Polytechnique Montréal (cours du soir). En dehors du travail et des études, je passe du temps avec ma famille, je m\u2019intéresse beaucoup à la finance, l\u2019économie et l\u2019actualité, je m\u2019entraîne au gym et j\u2019aime faire du vélo l\u2019été et marcher en forêt.',
     stats: [
       { value: '20+', label: 'Ans en TI' },
       { value: '10+', label: 'Ans en Cybersécurité' },
@@ -258,7 +258,7 @@ const fr: Translations = {
       {
         title: 'Gouvernance, Risque & Conformité',
         description:
-          'Près de 10 ans de conseil aux institutions financières en tant que 1re et 2e ligne de défense. Conception de programmes NIST, quantification du risque pour les décisions d\u2019investissement, conformité réglementaire et conseil exécutif en sécurité.',
+          '6 ans comme consultant en conformité réglementaire dans les secteurs des régimes de retraite et de l\u2019assurance, aux côtés de l\u2019audit interne, des architectes d\u2019entreprise et des comités exécutifs, au sein des 1re et 2e lignes de défense. Programmes d\u2019amélioration continue des processus d\u2019affaires et guides opérationnels ancrés dans des cadres réglementaires et normatifs (NIST, ISO 27001, PCI DSS), avec contrôles associés, KPIs et KCIs pour suivre l\u2019évolution de la maturité.',
         tags: ['NIST', 'ISO 27001', 'PCI DSS', 'GRC', 'Analyse de risque', 'Conformité', 'Conseil exécutif'],
       },
       {
