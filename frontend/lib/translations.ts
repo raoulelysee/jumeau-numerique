@@ -160,17 +160,17 @@ const en: Translations = {
         badge: 'In Development',
       },
       {
-        title: 'Strategic Investment Governance',
+        title: 'Business Security Architect – Strategic Investment Governance',
         description:
-          'Within a macro allocation team at a major financial institution, evaluated projects against organizational strategic objectives to validate continued funding. Delivered structured analysis and strategic advisory to executive committees on investment prioritization and program governance.',
-        tags: ['Strategic Advisory', 'Investment Governance', 'Executive Committees', 'Macro Allocation', 'Portfolio Management'],
+          'Strategic advisory to executive committees on security investment prioritization, aligned with enterprise risk reduction and organizational objectives. Validated project relevance and funding continuity through structured value and risk posture impact analyses. Directed the project selection process to ensure synergy between technological capabilities and the institution\'s business ambitions.',
+        tags: ['Strategic Advisory', 'Executive Committees', 'Macro Allocation', 'Portfolio Governance', 'Risk Posture'],
         badge: 'Enterprise',
       },
       {
         title: 'Enterprise Security Governance Program',
         description:
-          'Implemented NIST security controls across enterprise operations. Directed an external consulting firm mandate to design an operational governance model adapted to organizational needs — covering process optimization, control framework design, and strategic security advisory at the executive level.',
-        tags: ['NIST Controls', 'Governance Model', 'Operations Optimization', 'Executive Advisory', 'External Firm Direction'],
+          'Strategic direction of GRC and IAM governance, including definition of policies, standards, and control frameworks based on NIST, CIS, and TOGAF. Operationalized security through vulnerability management programs and DevSecOps pipeline hardening (SCA, SAST, DAST). Designed IAM processes and assessed organizational maturity. Authored security guides and RFP security requirements for enterprise procurement.',
+        tags: ['NIST / CIS / TOGAF', 'GRC & IAM Governance', 'DevSecOps', 'Vulnerability Management', 'Policy & Standards'],
         badge: 'Enterprise',
       },
       {
@@ -308,17 +308,17 @@ const fr: Translations = {
         badge: 'In Development',
       },
       {
-        title: 'Gouvernance Stratégique des Investissements',
+        title: 'Architecte d\u2019affaires en cybersécurité \u2013 Gouvernance stratégique des investissements',
         description:
-          'Au sein d\u2019une équipe de macro-allocation dans une grande institution financière, évaluation des projets en regard des objectifs stratégiques de l\u2019organisation pour valider la continuité du financement. Analyses structurées et conseils stratégiques aux comités exécutifs sur la priorisation des investissements et la gouvernance de portefeuille.',
-        tags: ['Conseil stratégique', 'Gouvernance des investissements', 'Comités exécutifs', 'Macro-allocation', 'Gestion de portefeuille'],
+          'Conseil stratégique aux comités exécutifs sur la priorisation des investissements en sécurité, alignée sur la réduction du risque d\u2019entreprise et les objectifs stratégiques. Validation de la pertinence et de la continuité du financement des projets de sécurité au travers d\u2019analyses de valeur et d\u2019impact sur la posture de risque. Pilotage du processus de sélection des projets pour garantir une synergie entre les capacités technologiques et les ambitions d\u2019affaires de l\u2019institution.',
+        tags: ['Conseil stratégique', 'Comités exécutifs', 'Macro-allocation', 'Gouvernance de portefeuille', 'Posture de risque'],
         badge: 'Enterprise',
       },
       {
         title: 'Programme de Gouvernance Sécurité en Entreprise',
         description:
-          'Implémentation de contrôles de sécurité NIST à l\u2019échelle de l\u2019entreprise. Direction d\u2019un mandat de firme externe pour la conception d\u2019un modèle opérationnel de gouvernance adapté aux besoins organisationnels — incluant l\u2019optimisation des processus, la conception de cadres de contrôle et le conseil stratégique en sécurité au niveau exécutif.',
-        tags: ['Contrôles NIST', 'Modèle de gouvernance', 'Optimisation opérationnelle', 'Conseil exécutif', 'Direction firme externe'],
+          'Direction stratégique de la gouvernance GRC et GIA, incluant la définition de politiques, de normes et de cadres de contrôle basés sur NIST, CIS et TOGAF. Opérationnalisation de la sécurité par la mise en place de programmes de gestion des vulnérabilités et la sécurisation des pipelines DevSecOps (SCA, SAST, DAST). Conception de processus GIA et évaluation de la maturité organisationnelle. Rédaction de guides de sécurité et de requis pour appels d\u2019offres.',
+        tags: ['NIST / CIS / TOGAF', 'Gouvernance GRC & GIA', 'DevSecOps', 'Gestion des vulnérabilités', 'Politiques & Normes'],
         badge: 'Enterprise',
       },
       {
