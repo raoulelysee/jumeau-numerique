@@ -211,6 +211,50 @@ resource "aws_lambda_permission" "api_gw" {
   source_arn    = "${aws_apigatewayv2_api.main.execution_arn}/*/*"
 }
 
+# CloudFront security response headers policy
+resource "aws_cloudfront_response_headers_policy" "security_headers" {
+  name    = "${local.name_prefix}-security-headers"
+  comment = "Security headers for ${local.name_prefix}"
+
+  security_headers_config {
+    content_type_options {
+      override = true
+    }
+    frame_options {
+      frame_option = "DENY"
+      override     = true
+    }
+    referrer_policy {
+      referrer_policy = "strict-origin-when-cross-origin"
+      override        = true
+    }
+    strict_transport_security {
+      access_control_max_age_sec = 31536000
+      include_subdomains         = true
+      preload                    = true
+      override                   = true
+    }
+    xss_protection {
+      mode_block = true
+      protection = true
+      override   = true
+    }
+  }
+
+  custom_headers_config {
+    items {
+      header   = "Permissions-Policy"
+      value    = "camera=(), microphone=(), geolocation=()"
+      override = true
+    }
+    items {
+      header   = "Content-Security-Policy"
+      value    = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https:; font-src 'self' data:;"
+      override = true
+    }
+  }
+}
+
 # CloudFront distribution
 resource "aws_cloudfront_distribution" "main" {
   aliases = local.aliases
@@ -251,10 +295,11 @@ resource "aws_cloudfront_distribution" "main" {
       }
     }
 
-    viewer_protocol_policy = "redirect-to-https"
-    min_ttl                = 0
-    default_ttl            = 3600
-    max_ttl                = 86400
+    viewer_protocol_policy     = "redirect-to-https"
+    min_ttl                    = 0
+    default_ttl                = 3600
+    max_ttl                    = 86400
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.security_headers.id
   }
 
   restrictions {
