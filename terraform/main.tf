@@ -217,6 +217,10 @@ resource "aws_cloudfront_response_headers_policy" "security_headers" {
   comment = "Security headers for ${local.name_prefix}"
 
   security_headers_config {
+    content_security_policy {
+      content_security_policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https:; font-src 'self' data:;"
+      override                = true
+    }
     content_type_options {
       override = true
     }
@@ -245,11 +249,6 @@ resource "aws_cloudfront_response_headers_policy" "security_headers" {
     items {
       header   = "Permissions-Policy"
       value    = "camera=(), microphone=(), geolocation=()"
-      override = true
-    }
-    items {
-      header   = "Content-Security-Policy"
-      value    = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https:; font-src 'self' data:;"
       override = true
     }
   }
