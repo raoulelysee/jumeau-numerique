@@ -94,7 +94,7 @@ const en: Translations = {
   about: {
     label: 'About',
     heading: 'Who I Am',
-    p1: 'I am a senior cybersecurity professional with 20 years of IT experience, including 10 years as an IT security coordinator and 6 years as a regulatory compliance consultant in pension and insurance sectors. My career began with a college diploma in business administration, followed by studies in computerized management and a university certificate in software development — years spent building web and mobile products with startup teams before pivoting fully into security and governance.',
+    p1: 'I am a senior cybersecurity professional with 20 years of IT experience, including 11 years as IT security coordinator at London Life and 6 years as regulatory compliance consultant in pension and insurance sectors. My career began with a college diploma in business administration, followed by studies in computerized management and a university certificate in software development at UQAM — years spent building web and mobile products with startup teams before pivoting fully into security and governance.',
     p2: 'My approach bridges strategic advisory and operational execution. I have collaborated with internal audit teams, enterprise architects, domain architects, and executive committees — advancing security maturity, leading GRC programs, and translating regulatory requirements into concrete architecture decisions, with deep understanding of the fiduciary responsibilities and systemic risks of regulated financial institutions. This executive mindset also manifests in my 10+ year tenure as president of a co-ownership corporation — leading recruitment, RFP management, stakeholder assemblies, member communications, and board-level governance decisions.',
     p3: 'More recently I have developed deep expertise in agentic AI engineering — building multi-agent systems and deploying LLM-powered solutions in production across AWS, Azure, GCP, Vercel, and private VPS environments, while applying security principles (guardrails, memory management, least privilege) to every AI architecture I design. I also maintain personal AI infrastructures connected to a broad toolset to amplify creativity, accelerate ideation, and explore how AI can genuinely augment human and production capabilities.',
     p4: "I am currently completing a Bachelor's degree by accumulation in Cybersecurity at Polytechnique Montréal (evenings). Outside of work and studies, I spend time with my family, follow finance, economics, and current events closely, train at the gym, and enjoy cycling in the summer and hiking through the forest.",
@@ -130,8 +130,8 @@ const en: Translations = {
       {
         title: 'DevSecOps & Application Security',
         description:
-          'Secure CI/CD pipelines (Azure DevOps), OWASP Top 10 remediation, vulnerability management with risk-based prioritization. 10+ years of software development across web (React, Next.js), mobile (Flutter), and automation (Python).',
-        tags: ['OWASP', 'DevSecOps', 'Python', 'React / Next.js', 'Flutter'],
+          'Secure CI/CD pipelines integrating SCA, SAST, and DAST (Azure DevOps). OWASP Top 10 remediation, vulnerability management using Nessus, Burp Suite, and DefectDojo, and SSDLC implementation. Security automation with Python and PowerShell. 10+ years of development across web (React, Next.js), mobile (Flutter), and security tooling.',
+        tags: ['OWASP', 'DevSecOps', 'SSDLC', 'Nessus / Burp Suite', 'Splunk / Sentinel'],
       },
       {
         title: 'Cloud Architecture & MLOps',
@@ -153,6 +153,13 @@ const en: Translations = {
         badge: 'Live',
       },
       {
+        title: 'Principal Cybersecurity Advisor — Regulated Healthcare',
+        description:
+          'Current mandate as principal cybersecurity advisor in a regulated healthcare organization. Leading vulnerability management programs and coordinating penetration testing. Conducting threat modeling and risk assessments. Implementing DevSecOps pipelines with SCA, SAST, and DAST tooling. Driving security automation through Power Apps, Python, and PowerShell. Authoring security guides and defining security requirements for RFPs.',
+        tags: ['Vulnerability Management', 'Threat Modeling', 'DevSecOps', 'PowerShell / Python', 'Power Apps'],
+        badge: 'Live',
+      },
+      {
         title: 'Legal Brain — Graph RAG',
         description:
           'AI legal assistant trained on Quebec and Canadian law using Graph RAG: a Neo4j knowledge graph combined with a Qdrant vector database for semantic retrieval. Delivers precise article-level citations. Targeting LegalTech commercialization.',
@@ -167,10 +174,10 @@ const en: Translations = {
         badge: 'Enterprise',
       },
       {
-        title: 'Security & Systemic Risk Governance Program',
+        title: 'Security & IAM Governance — Expert Mandate',
         description:
-          'Strategic direction of GRC and IAM governance in regulated financial environments, under NIST, CIS, and TOGAF frameworks. Governed complex stakeholder ecosystems — from board-level oversight to cross-functional technical teams. Operationalized security through vulnerability management programs and DevSecOps pipelines (SCA, SAST, DAST). Designed IAM processes, assessed organizational maturity, and authored security guides and RFP security requirements.',
-        tags: ['NIST / CIS / TOGAF', 'Systemic Risk Governance', 'Stakeholder Management', 'GRC & IAM', 'DevSecOps'],
+          'Expert governance mandate within the IAM function of a major financial institution. Defined IAM policies, standards, and governance frameworks aligned with enterprise risk objectives. Assessed organizational maturity and directed external security consultants. Previously held a principal IT analyst and security SME role in an enterprise architecture context — delivering structured security analyses and pragmatic, framework-aligned recommendations (NIST, CIS, TOGAF) to architecture teams and executive decision-makers.',
+        tags: ['IAM Governance', 'Maturity Assessment', 'Policy & Standards', 'NIST / CIS / TOGAF', 'External Consultant Direction'],
         badge: 'Enterprise',
       },
       {
@@ -242,7 +249,7 @@ const fr: Translations = {
   about: {
     label: 'À propos',
     heading: 'Qui je suis',
-    p1: 'Je suis un professionnel senior en cybersécurité avec 20 ans d\u2019expérience en TI, dont 10 ans comme coordonnateur de sécurité informatique et 6 ans comme consultant en conformité réglementaire dans les secteurs des régimes de retraite et de l\u2019assurance. Mon parcours a débuté par un DEC en techniques de gestion, suivi d\u2019études en gestion informatisée et d\u2019un certificat universitaire en développement logiciel — des années consacrées à bâtir des produits web et mobiles au sein d\u2019équipes startup, avant de me concentrer pleinement sur la sécurité et la gouvernance.',
+    p1: 'Je suis un professionnel senior en cybersécurité avec 20 ans d\u2019expérience en TI, dont 11 ans comme coordonnateur de sécurité informatique chez London Life et 6 ans comme consultant en conformité réglementaire dans les secteurs des régimes de retraite et de l\u2019assurance. Mon parcours a débuté par un DEC en techniques de gestion, suivi d\u2019études en gestion informatisée et d\u2019un certificat universitaire en développement logiciel à l\u2019UQAM — des années consacrées à bâtir des produits web et mobiles au sein d\u2019équipes startup, avant de me concentrer pleinement sur la sécurité et la gouvernance.',
     p2: 'Mon approche conjugue conseil stratégique et exécution opérationnelle. J\u2019ai collaboré avec des équipes d\u2019audit interne, des architectes d\u2019entreprise, des architectes de domaine et des comités exécutifs — pour faire progresser la maturité en sécurité, piloter des programmes GRC et traduire les exigences réglementaires en décisions d\u2019architecture concrètes, avec une compréhension approfondie des responsabilités fiduciaires et des risques systémiques des institutions financières régulées. Cette posture exécutive se reflète également dans ma présidence d\u2019une copropriété depuis plus de 10 ans — recrutement, appels d\u2019offre, animation d\u2019assemblées, communication aux membres et décisions de gouvernance au niveau du conseil d\u2019administration.',
     p3: 'Plus récemment, j\u2019ai développé une expertise approfondie en ingénierie de l\u2019IA agentique — en construisant des systèmes multi-agents et en déployant des solutions LLM en production sur AWS, Azure, GCP, Vercel et des environnements VPS privés, tout en appliquant mes principes de sécurité (guardrails, gestion de la mémoire, moindre privilège) à chaque architecture IA que je conçois. Je maintiens également des infrastructures IA personnelles connectées à un large écosystème d\u2019outils, pour amplifier ma créativité, accélérer la concrétisation de mes idées et explorer comment l\u2019IA peut réellement augmenter les capacités humaines et de production.',
     p4: 'Je complète actuellement un baccalauréat par cumul en cybersécurité à Polytechnique Montréal (cours du soir). En dehors du travail et des études, je passe du temps avec ma famille, je m\u2019intéresse beaucoup à la finance, l\u2019économie et l\u2019actualité, je m\u2019entraîne au gym et j\u2019aime faire du vélo l\u2019été et marcher en forêt.',
@@ -278,8 +285,8 @@ const fr: Translations = {
       {
         title: 'DevSecOps & Sécurité Applicative',
         description:
-          'Pipelines CI/CD sécurisés (Azure DevOps), remédiation OWASP Top 10, gestion des vulnérabilités avec priorisation par le risque. Plus de 10 ans de développement logiciel : web (React, Next.js), mobile (Flutter) et automatisation (Python).',
-        tags: ['OWASP', 'DevSecOps', 'Python', 'React / Next.js', 'Flutter'],
+          'Pipelines CI/CD sécurisés intégrant SCA, SAST et DAST (Azure DevOps). Remédiation OWASP Top 10, gestion des vulnérabilités avec Nessus, Burp Suite et DefectDojo, et implémentation du SSDLC. Automatisation sécurité avec Python et PowerShell. Plus de 10 ans de développement web (React, Next.js), mobile (Flutter) et outillage sécurité.',
+        tags: ['OWASP', 'DevSecOps', 'SSDLC', 'Nessus / Burp Suite', 'Splunk / Sentinel'],
       },
       {
         title: 'Architecture Cloud & MLOps',
@@ -301,6 +308,13 @@ const fr: Translations = {
         badge: 'Live',
       },
       {
+        title: 'Conseiller Principal en Cybersécurité — Secteur Santé Réglementé',
+        description:
+          'Mandat actuel de conseiller principal en cybersécurité au sein d\u2019une organisation de santé réglementée. Pilotage de programmes de gestion des vulnérabilités et coordination des tests d\u2019intrusion. Modélisation des menaces et évaluations des risques. Mise en place de pipelines DevSecOps avec outillage SCA, SAST et DAST. Automatisation de la sécurité via Power Apps, Python et PowerShell. Rédaction de guides de sécurité et définition des exigences sécurité pour les appels d\u2019offres.',
+        tags: ['Gestion des vulnérabilités', 'Threat Modeling', 'DevSecOps', 'PowerShell / Python', 'Power Apps'],
+        badge: 'Live',
+      },
+      {
         title: 'Legal Brain — Graph RAG',
         description:
           'Assistant juridique IA entraîné sur le droit québécois et canadien via Graph RAG : un graphe de connaissances Neo4j combiné à une base vectorielle Qdrant pour la récupération sémantique. Fournit des citations précises au niveau des articles. Ciblant une commercialisation LegalTech.',
@@ -315,10 +329,10 @@ const fr: Translations = {
         badge: 'Enterprise',
       },
       {
-        title: 'Programme de Gouvernance Sécurité en Entreprise',
+        title: 'Gouvernance Sécurité & GIA — Mandat Expert',
         description:
-          'Direction stratégique de la gouvernance GRC et GIA, incluant la définition de politiques, de normes et de cadres de contrôle basés sur NIST, CIS et TOGAF. Opérationnalisation de la sécurité par la mise en place de programmes de gestion des vulnérabilités et la sécurisation des pipelines DevSecOps (SCA, SAST, DAST). Conception de processus GIA et évaluation de la maturité organisationnelle. Rédaction de guides de sécurité et de requis pour appels d\u2019offres.',
-        tags: ['NIST / CIS / TOGAF', 'Gouvernance GRC & GIA', 'DevSecOps', 'Gestion des vulnérabilités', 'Politiques & Normes'],
+          'Mandat d\u2019expert en gouvernance au sein de la fonction GIA d\u2019une grande institution financière. Définition de politiques, normes et cadres de gouvernance GIA alignés sur les objectifs de risque d\u2019entreprise. Évaluation de la maturité organisationnelle et direction de consultants externes en sécurité. Précédemment, rôle d\u2019analyste TI principal et expert en sécurité en contexte d\u2019architecture d\u2019entreprise — livrant des analyses structurées et des recommandations pragmatiques alignées sur les cadres NIST, CIS, TOGAF aux équipes d\u2019architecture et aux décideurs exécutifs.',
+        tags: ['Gouvernance GIA', 'Évaluation de maturité', 'Politiques & Normes', 'NIST / CIS / TOGAF', 'Direction de consultants'],
         badge: 'Enterprise',
       },
       {
