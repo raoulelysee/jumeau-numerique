@@ -83,6 +83,15 @@ export interface Translations {
     statusLabels: { completed: string; in_progress: string };
     items: EducationItem[];
   };
+  differentiators: {
+    label: string;
+    heading: string;
+    items: {
+      title: string;
+      description: string;
+      points: string[];
+    }[];
+  };
   footer: {
     rights: string;
     tagline: string;
@@ -103,7 +112,7 @@ const en: Translations = {
     badge: 'Enterprise Security & AI Architecture',
     subtitle: 'Enterprise Security & AI Architect\u00a0\u00a0·\u00a0\u00a0Regulated Industries',
     description:
-      'Designing secure, compliant and scalable AI-driven architectures aligned with business risk, regulatory constraints and operational realities — combining deep technical execution with regulatory awareness and board-level governance exposure.',
+      'Bridging AI innovation, cybersecurity architecture, and regulatory governance for complex, regulated enterprises — aligning technical execution with risk reduction, compliance requirements, and strategic business objectives.',
     ctaPrimary: 'Talk to My Digital Twin',
     ctaSecondary: 'View Projects',
   },
@@ -134,8 +143,8 @@ const en: Translations = {
       {
         title: 'Governance, Risk & Compliance',
         description:
-          '6 years as regulatory compliance consultant in pension and insurance sectors at Canada Life and London Life, holding roles across both the 1st and 2nd lines of defense. Provided strategic risk advisory and recommendations to executive leadership on regulatory requirements and enterprise risk exposure. Delivered continuous improvement programs and operational guides with associated controls, KPIs, and KCIs to track compliance maturity in highly regulated environments.',
-        tags: ['GRC', 'Regulatory Compliance', 'Risk Advisory', 'Executive Advisory', 'Compliance Maturity'],
+          '6 years as regulatory compliance consultant in pension and insurance sectors at Canada Life and London Life, across both 1st and 2nd lines of defense. Delivered strategic risk advisory on a broad regulatory landscape — PIPEDA, Loi 25, Insurance Act, Loi RCR, CCQ, PCI DSS, NIST, and ISO 27001 — and enterprise risk exposure. Led stakeholder awareness initiatives and collaborated with business units to translate complex compliance requirements into operational practices — driving maturity through continuous improvement programs, KPIs, and KCIs.',
+        tags: ['PIPEDA / Loi 25 / PCI DSS', 'Insurance Act / Loi RCR / CCQ', 'NIST / ISO 27001', 'Stakeholder Awareness', 'GRC'],
       },
       {
         title: 'AI & Agentic Engineering',
@@ -276,6 +285,45 @@ const en: Translations = {
       },
     ],
   },
+  differentiators: {
+    label: 'Strategic Edge',
+    heading: 'Why This Profile Is Different',
+    items: [
+      {
+        title: 'Regulated Industry Authority',
+        description:
+          'Nearly 19 years embedded in regulated financial institutions — across pension, insurance and compliance — provide a ground-level understanding of regulatory mechanics, fiduciary risk, and audit processes that most architects lack.',
+        points: [
+          '6 years pension & insurance compliance consulting (1st & 2nd line of defense)',
+          'IT Security Coordination within a regulated enterprise environment',
+          'Claims and risk operations experience',
+          'Deep familiarity with PIPEDA, Loi 25, Insurance Act, Loi RCR, CCQ, PCI DSS',
+        ],
+      },
+      {
+        title: 'Cross-Functional Executive Interface',
+        description:
+          'Proven ability to operate across all organizational layers — from development and architecture teams to audit committees and executive boards — translating risk into business language and business intent into architecture.',
+        points: [
+          'Collaboration with internal audit, IT compliance, and enterprise architects',
+          'Stakeholder awareness programs and business unit engagement',
+          'Risk governance alignment across technical, compliance, and executive functions',
+          '10+ years board-level governance as co-ownership president',
+        ],
+      },
+      {
+        title: 'Applied AI & Security R&D',
+        description:
+          'Every recommendation is grounded in hands-on experimentation. A private AI and security lab running production-grade deployments, continuous tooling validation, and applied vulnerability research.',
+        points: [
+          'Private VPS with self-hosted AI infrastructure',
+          'Graph RAG with Neo4j + Qdrant in production',
+          'Security tooling validation and exploit research',
+          '40+ LLMs tested — open source and cloud',
+        ],
+      },
+    ],
+  },
   footer: {
     rights: '© 2025 Raoul Elysée. All rights reserved.',
     tagline: 'Cybersecurity Architect\u00a0·\u00a0AI Specialist\u00a0·\u00a0Montréal, QC',
@@ -327,8 +375,8 @@ const fr: Translations = {
       {
         title: 'Gouvernance, Risque & Conformité',
         description:
-          '6 ans comme consultant en conformité réglementaire dans les secteurs des régimes de retraite et de l\u2019assurance chez Canada Vie et London Life, occupant des rôles en 1re et 2e ligne de défense. Conseils stratégiques aux dirigeants exécutifs sur les exigences réglementaires et l\u2019exposition au risque d\u2019entreprise. Programmes d\u2019amélioration continue et guides opérationnels avec contrôles associés, KPIs et KCIs pour suivre la maturité de conformité en environnements hautement régulés.',
-        tags: ['GRC', 'Conformité réglementaire', 'Conseil en risque', 'Conseil exécutif', 'Maturité de conformité'],
+          '6 ans comme consultant en conformité réglementaire dans les secteurs des régimes de retraite et de l\u2019assurance chez Canada Vie et London Life, en 1re et 2e ligne de défense. Conseil stratégique sur un large paysage réglementaire — PIPEDA, Loi 25, Loi sur les assurances, Loi RCR, CCQ, PCI DSS, NIST, ISO 27001 — et sur l\u2019exposition au risque d\u2019entreprise. Pilotage d\u2019initiatives de sensibilisation des parties prenantes et collaboration avec les unités d\u2019affaires pour traduire les exigences de conformité en pratiques opérationnelles concrètes — renforçant la maturité par des programmes d\u2019amélioration continue, KPIs et KCIs.',
+        tags: ['PIPEDA / Loi 25 / PCI DSS', 'Loi sur les assurances / Loi RCR / CCQ', 'NIST / ISO 27001', 'Sensibilisation parties prenantes', 'GRC'],
       },
       {
         title: 'IA & Ingénierie Agentique',
@@ -466,6 +514,45 @@ const fr: Translations = {
         degree: 'DEC — Techniques de gestion',
         institution: 'Collège Marie-Victorin',
         status: 'completed',
+      },
+    ],
+  },
+  differentiators: {
+    label: 'Valeur Ajoutée',
+    heading: 'Ce Qui Différencie Ce Profil',
+    items: [
+      {
+        title: 'Autorité en Milieu Régulé',
+        description:
+          'Près de 19 ans au sein d\u2019institutions financières régulées — retraite, assurance et conformité — confèrent une compréhension de terrain des mécanismes réglementaires, du risque fiduciaire et des processus d\u2019audit que peu d\u2019architectes possèdent.',
+        points: [
+          '6 ans de conseil en conformité réglementaire retraite & assurance (1re et 2e ligne)',
+          'Coordonnateur sécurité TI en environnement d\u2019entreprise réglementé',
+          'Expérience en réclamations et opérations risque',
+          'Maîtrise de PIPEDA, Loi 25, Loi sur les assurances, Loi RCR, CCQ, PCI DSS',
+        ],
+      },
+      {
+        title: 'Interface Transversale & Exécutive',
+        description:
+          'Capacité démontrée à opérer à tous les niveaux organisationnels — des équipes de développement et d\u2019architecture aux comités d\u2019audit et aux conseils exécutifs — en traduisant le risque en langage d\u2019affaires et les objectifs d\u2019affaires en décisions d\u2019architecture.',
+        points: [
+          'Collaboration avec audit interne, conformité TI et architectes d\u2019entreprise',
+          'Programmes de sensibilisation des parties prenantes et engagement des unités d\u2019affaires',
+          'Alignement de la gouvernance du risque entre fonctions techniques, conformité et exécutives',
+          'Plus de 10 ans de gouvernance au niveau du conseil d\u2019administration',
+        ],
+      },
+      {
+        title: 'R&D IA & Sécurité Appliquée',
+        description:
+          'Chaque recommandation repose sur une expérimentation concrète. Un laboratoire IA et sécurité privé opérant des déploiements en production, une validation continue des outils et une recherche appliquée sur les vulnérabilités.',
+        points: [
+          'VPS privé avec infrastructure IA auto-hébergée',
+          'Graph RAG avec Neo4j + Qdrant en production',
+          'Validation d\u2019outillage sécurité et recherche sur les exploits',
+          '40+ LLMs testés — open source et cloud',
+        ],
       },
     ],
   },

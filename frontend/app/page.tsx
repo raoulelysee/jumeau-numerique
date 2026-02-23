@@ -170,6 +170,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── DIFFERENTIATORS ───────────────────────────────────────────────────── */}
+      <section className="relative py-24 border-t border-zinc-800/50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-12">
+              <span className="text-emerald-400 text-sm font-medium uppercase tracking-wider">{t.differentiators.label}</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">{t.differentiators.heading}</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-5">
+              {t.differentiators.items.map((item) => (
+                <div
+                  key={item.title}
+                  className="p-6 bg-zinc-800/30 border border-zinc-700/40 rounded-2xl hover:border-zinc-600/60 transition-colors duration-200"
+                >
+                  <h3 className="text-white font-semibold text-base mb-2">{item.title}</h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed mb-4">{item.description}</p>
+                  <ul className="space-y-2">
+                    {item.points.map((point) => (
+                      <li key={point} className="flex items-start gap-2 text-zinc-300 text-xs leading-snug">
+                        <span className="text-emerald-400 shrink-0 mt-0.5">→</span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── EXPERTISE ─────────────────────────────────────────────────────────── */}
       <section id="expertise" className="relative py-24 border-t border-zinc-800/50">
         <div className="container mx-auto px-6">
