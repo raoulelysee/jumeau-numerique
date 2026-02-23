@@ -1,5 +1,13 @@
 export type Lang = 'en' | 'fr';
 export type BadgeKey = 'Live' | 'In Development' | 'Commercial' | 'Research' | 'Enterprise';
+export type EducationStatus = 'completed' | 'in_progress';
+
+export interface EducationItem {
+  period: string;
+  degree: string;
+  institution: string;
+  status: EducationStatus;
+}
 
 export interface ExpertiseArea {
   title: string;
@@ -17,6 +25,7 @@ export interface Project {
 export interface Translations {
   nav: {
     about: string;
+    education: string;
     expertise: string;
     projects: string;
     digitalTwin: string;
@@ -68,6 +77,12 @@ export interface Translations {
     description: string;
     linkedin: string;
   };
+  education: {
+    label: string;
+    heading: string;
+    statusLabels: { completed: string; in_progress: string };
+    items: EducationItem[];
+  };
   footer: {
     rights: string;
     tagline: string;
@@ -77,6 +92,7 @@ export interface Translations {
 const en: Translations = {
   nav: {
     about: 'About',
+    education: 'Education',
     expertise: 'Expertise',
     projects: 'Projects',
     digitalTwin: 'Digital Twin',
@@ -84,22 +100,22 @@ const en: Translations = {
     cta: "Let's Talk",
   },
   hero: {
-    badge: 'Building Sovereign AI Architectures',
-    subtitle: 'Security & AI Transformation Expert\u00a0\u00a0·\u00a0\u00a0Regulated Financial Industries',
+    badge: 'Enterprise Security & AI Architecture',
+    subtitle: 'Enterprise Security & AI Architect\u00a0\u00a0·\u00a0\u00a0Regulated Industries',
     description:
-      'Systemic architect bridging emerging AI technologies with regulatory compliance and enterprise risk reduction — aligning security capabilities with the governance frameworks, fiduciary responsibilities, and strategic objectives of regulated financial and insurance institutions.',
+      'Designing secure, compliant and scalable AI-driven architectures aligned with business risk, regulatory constraints and operational realities — combining deep technical execution with regulatory awareness and board-level governance exposure.',
     ctaPrimary: 'Talk to My Digital Twin',
     ctaSecondary: 'View Projects',
   },
   about: {
     label: 'About',
     heading: 'Who I Am',
-    p1: 'I am a senior cybersecurity professional with 20 years of IT experience, including 11 years as IT security coordinator at London Life and 6 years as regulatory compliance consultant in pension and insurance sectors. My career began with a college diploma in business administration, followed by studies in computerized management and a university certificate in software development at UQAM — years spent building web and mobile products with startup teams before pivoting fully into security and governance.',
-    p2: 'My approach bridges strategic advisory and operational execution. I have collaborated with internal audit teams, enterprise architects, domain architects, and executive committees — advancing security maturity, leading GRC programs, and translating regulatory requirements into concrete architecture decisions, with deep understanding of the fiduciary responsibilities and systemic risks of regulated financial institutions. This executive mindset also manifests in my 10+ year tenure as president of a co-ownership corporation — leading recruitment, RFP management, stakeholder assemblies, member communications, and board-level governance decisions.',
+    p1: "I am a cybersecurity and AI architect with over 20 years of IT experience. Nearly 19 years were spent within the Great-West Lifeco group — across London Life and Canada Life — where I progressed through claims and insurance operations, then over a decade as IT Security Coordinator, and finally as a regulatory compliance consultant. This breadth of roles within regulated financial institutions — across multiple functions and lines of defense — gives me a genuine understanding of the business and fiduciary stakes behind every system I protect. My career began with a college diploma in business administration at Collège Marie-Victorin and a university certificate in software development at UQAM — years also spent building web and mobile products with startup teams.",
+    p2: 'My expertise sits at the intersection of cybersecurity architecture, regulatory compliance, governance and risk management, AI systems, and operational security leadership — combining deep technical execution with regulatory awareness and board-level governance exposure. I have collaborated with internal audit teams, enterprise architects, domain architects, and executive committees — advancing security maturity, leading GRC programs, and translating regulatory requirements into concrete architecture decisions. This executive mindset extends to my 10+ year tenure as president of a co-ownership corporation — leading recruitment, RFP management, stakeholder assemblies, member communications, and board-level governance decisions.',
     p3: 'More recently I have developed deep expertise in agentic AI engineering — building multi-agent systems and deploying LLM-powered solutions in production across AWS, Azure, GCP, Vercel, and private VPS environments, while applying security principles (guardrails, memory management, least privilege) to every AI architecture I design. I also maintain personal AI infrastructures connected to a broad toolset to amplify creativity, accelerate ideation, and explore how AI can genuinely augment human and production capabilities.',
     p4: "I am currently completing a Bachelor's degree by accumulation in Cybersecurity at Polytechnique Montréal (evenings). Outside of work and studies, I spend time with my family, follow finance, economics, and current events closely, train at the gym, and enjoy cycling in the summer and hiking through the forest.",
     stats: [
-      { value: '20+', label: 'Years in IT' },
+      { value: '19', label: 'Years at Great-West Lifeco' },
       { value: '10+', label: 'Years in Cybersecurity & Compliance' },
       { value: '40+', label: 'LLMs Tested (open source + cloud)' },
       { value: '2027', label: 'BSc Cybersecurity (in progress)' },
@@ -204,11 +220,11 @@ const en: Translations = {
     Enterprise: 'Enterprise',
   },
   philosophy: {
-    q1: 'Security is not a control function.',
-    q1em: 'It is a business enabler.',
-    q2: 'Artificial Intelligence is not a replacement.',
-    q2em: 'It is a force multiplier.',
-    q3em: 'Identity is the new perimeter.',
+    q1: 'Security is not a control layer.',
+    q1em: 'It is a risk-aligned business enabler.',
+    q2: 'AI is not innovation by default.',
+    q2em: 'It must be governed, secured, and operationalized responsibly.',
+    q3em: 'Architecture must integrate business objectives, regulatory exposure, and governance accountability.',
   },
   digitalTwin: {
     badge: 'AI-Powered',
@@ -223,6 +239,43 @@ const en: Translations = {
       'Interested in discussing security architecture, AI-driven security transformation, or leadership opportunities? I would love to hear from you.',
     linkedin: 'LinkedIn Profile',
   },
+  education: {
+    label: 'Education',
+    heading: 'Academic Background',
+    statusLabels: { completed: 'Completed', in_progress: 'In Progress' },
+    items: [
+      {
+        period: '2026 – 2027',
+        degree: 'Certificate — Cybersecurity Incident Management & Response',
+        institution: 'Polytechnique Montréal',
+        status: 'in_progress',
+      },
+      {
+        period: '2024 – 2025',
+        degree: 'Certificate — Cybersecurity Analysis & Operations',
+        institution: 'Polytechnique Montréal',
+        status: 'completed',
+      },
+      {
+        period: '2022 – 2023',
+        degree: 'Certificate — Cybersecurity Architecture & Management',
+        institution: 'Polytechnique Montréal',
+        status: 'completed',
+      },
+      {
+        period: '2012 – 2015',
+        degree: 'Certificate — Software Development (Computer Science)',
+        institution: 'UQAM',
+        status: 'completed',
+      },
+      {
+        period: '1998 – 2001',
+        degree: 'College Diploma (DEC) — Business Administration',
+        institution: 'Collège Marie-Victorin',
+        status: 'completed',
+      },
+    ],
+  },
   footer: {
     rights: '© 2025 Raoul Elysée. All rights reserved.',
     tagline: 'Cybersecurity Architect\u00a0·\u00a0AI Specialist\u00a0·\u00a0Montréal, QC',
@@ -232,6 +285,7 @@ const en: Translations = {
 const fr: Translations = {
   nav: {
     about: 'À propos',
+    education: 'Formation',
     expertise: 'Expertise',
     projects: 'Projets',
     digitalTwin: 'Jumeau Numérique',
@@ -239,23 +293,23 @@ const fr: Translations = {
     cta: 'Contactez-moi',
   },
   hero: {
-    badge: 'Conception d\u2019architectures IA souveraines',
-    subtitle: 'Expert en Transformation Sécurité & IA\u00a0\u00a0·\u00a0\u00a0Industries Financières Régulées',
+    badge: 'Architecture Sécurité & IA d\u2019Entreprise',
+    subtitle: 'Architecte Sécurité & IA d\u2019Entreprise\u00a0\u00a0·\u00a0\u00a0Industries Régulées',
     description:
-      'Architecte systémique alignant les technologies IA émergentes sur la conformité réglementaire et la réduction du risque d\u2019entreprise — harmonisant les capacités de sécurité avec les cadres de gouvernance, la responsabilité fiduciaire et les objectifs stratégiques des institutions financières et d\u2019assurance régulées.',
+      'Conception d\u2019architectures IA sécurisées, conformes et scalables, alignées sur le risque d\u2019affaires, les contraintes réglementaires et les réalités opérationnelles — alliant exécution technique approfondie, conscience réglementaire et exposition à la gouvernance de niveau exécutif.',
     ctaPrimary: 'Parler à mon Jumeau Numérique',
     ctaSecondary: 'Voir les projets',
   },
   about: {
     label: 'À propos',
     heading: 'Qui je suis',
-    p1: 'Je suis un professionnel senior en cybersécurité avec 20 ans d\u2019expérience en TI, dont 11 ans comme coordonnateur de sécurité informatique chez London Life et 6 ans comme consultant en conformité réglementaire dans les secteurs des régimes de retraite et de l\u2019assurance. Mon parcours a débuté par un DEC en techniques de gestion, suivi d\u2019études en gestion informatisée et d\u2019un certificat universitaire en développement logiciel à l\u2019UQAM — des années consacrées à bâtir des produits web et mobiles au sein d\u2019équipes startup, avant de me concentrer pleinement sur la sécurité et la gouvernance.',
-    p2: 'Mon approche conjugue conseil stratégique et exécution opérationnelle. J\u2019ai collaboré avec des équipes d\u2019audit interne, des architectes d\u2019entreprise, des architectes de domaine et des comités exécutifs — pour faire progresser la maturité en sécurité, piloter des programmes GRC et traduire les exigences réglementaires en décisions d\u2019architecture concrètes, avec une compréhension approfondie des responsabilités fiduciaires et des risques systémiques des institutions financières régulées. Cette posture exécutive se reflète également dans ma présidence d\u2019une copropriété depuis plus de 10 ans — recrutement, appels d\u2019offre, animation d\u2019assemblées, communication aux membres et décisions de gouvernance au niveau du conseil d\u2019administration.',
+    p1: 'Je suis un architecte en cybersécurité et IA avec plus de 20 ans d\u2019expérience en TI. Près de 19 ans ont été consacrés au sein du groupe Great-West Lifeco — entre London Life et Canada Vie — où j\u2019ai évolué à travers des fonctions en réclamations et opérations d\u2019assurance, puis plus d\u2019une décennie comme coordonnateur de sécurité informatique, et enfin comme consultant en conformité réglementaire. Cette profondeur d\u2019expérience à travers plusieurs fonctions et lignes de défense d\u2019une même institution financière régulée me permet de protéger les infrastructures technologiques en comprenant véritablement les enjeux d\u2019affaires et fiduciaires derrière chaque système. Mon parcours académique a débuté par un DEC en techniques de gestion au Collège Marie-Victorin, suivi d\u2019un certificat en développement logiciel à l\u2019UQAM — des années également consacrées à bâtir des produits web et mobiles avec des équipes startup.',
+    p2: 'Mon expertise se situe à l\u2019intersection de l\u2019architecture cybersécurité, de la conformité réglementaire, de la gouvernance et gestion du risque, des systèmes IA et du leadership en sécurité opérationnelle — alliant exécution technique approfondie, conscience réglementaire et exposition à la gouvernance de niveau exécutif. J\u2019ai collaboré avec des équipes d\u2019audit interne, des architectes d\u2019entreprise, des architectes de domaine et des comités exécutifs — pour faire progresser la maturité en sécurité, piloter des programmes GRC et traduire les exigences réglementaires en décisions d\u2019architecture concrètes. Cette posture exécutive se reflète également dans ma présidence d\u2019une copropriété depuis plus de 10 ans — recrutement, appels d\u2019offre, animation d\u2019assemblées, communication aux membres et décisions de gouvernance au niveau du conseil d\u2019administration.',
     p3: 'Plus récemment, j\u2019ai développé une expertise approfondie en ingénierie de l\u2019IA agentique — en construisant des systèmes multi-agents et en déployant des solutions LLM en production sur AWS, Azure, GCP, Vercel et des environnements VPS privés, tout en appliquant mes principes de sécurité (guardrails, gestion de la mémoire, moindre privilège) à chaque architecture IA que je conçois. Je maintiens également des infrastructures IA personnelles connectées à un large écosystème d\u2019outils, pour amplifier ma créativité, accélérer la concrétisation de mes idées et explorer comment l\u2019IA peut réellement augmenter les capacités humaines et de production.',
     p4: 'Je complète actuellement un baccalauréat par cumul en cybersécurité à Polytechnique Montréal (cours du soir). En dehors du travail et des études, je passe du temps avec ma famille, je m\u2019intéresse beaucoup à la finance, l\u2019économie et l\u2019actualité, je m\u2019entraîne au gym et j\u2019aime faire du vélo l\u2019été et marcher en forêt.',
     stats: [
-      { value: '20+', label: 'Ans en TI' },
-      { value: '10+', label: 'Ans en Cybersécurité' },
+      { value: '19', label: 'Ans chez Great-West Lifeco' },
+      { value: '10+', label: 'Ans en Sécurité de l\u2019information & Conformité' },
       { value: '40+', label: 'LLMs testés (open source + cloud)' },
       { value: '2027', label: 'Bac Cybersécurité (en cours)' },
     ],
