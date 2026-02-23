@@ -92,6 +92,13 @@ export interface Translations {
       points: string[];
     }[];
   };
+  impact: {
+    label: string;
+    heading: string;
+    intro: string;
+    points: string[];
+    closing: string;
+  };
   footer: {
     rights: string;
     tagline: string;
@@ -110,7 +117,7 @@ const en: Translations = {
   },
   hero: {
     badge: 'Enterprise Security & AI Architecture',
-    subtitle: 'Enterprise Security & AI Architect\u00a0\u00a0·\u00a0\u00a0Regulated Industries',
+    subtitle: 'Enterprise AI & Cyber Risk Architect\u00a0\u00a0·\u00a0\u00a0Regulated Industries',
     description:
       'Bridging AI innovation, cybersecurity architecture, and regulatory governance for complex, regulated enterprises — aligning technical execution with risk reduction, compliance requirements, and strategic business objectives.',
     ctaPrimary: 'Talk to My Digital Twin',
@@ -324,6 +331,21 @@ const en: Translations = {
       },
     ],
   },
+  impact: {
+    label: 'Business Impact',
+    heading: 'Business & Enterprise Impact',
+    intro:
+      'My work consistently targets measurable, risk-aligned outcomes — not theoretical compliance or checkbox security.',
+    points: [
+      'Strengthened organizational security posture through architecture-led programs and structured risk reduction strategies',
+      'Delivered compliance alignment across PIPEDA, Loi 25, Insurance Act, PCI DSS, and NIST — translating regulatory complexity into operational practices',
+      'Bridged the gap between security teams and business operations — enabling informed, risk-aware decision-making at every organizational layer',
+      'Enabled secure AI innovation through applied AI security principles: guardrails, least privilege, memory controls, and responsible operationalization',
+      'Built cross-functional governance momentum — aligning technical, compliance, and executive functions around shared risk objectives',
+    ],
+    closing:
+      'Rather than viewing security as a constraint, I position it as a structured enabler of sustainable growth and innovation.',
+  },
   footer: {
     rights: '© 2025 Raoul Elysée. All rights reserved.',
     tagline: 'Cybersecurity Architect\u00a0·\u00a0AI Specialist\u00a0·\u00a0Montréal, QC',
@@ -342,7 +364,7 @@ const fr: Translations = {
   },
   hero: {
     badge: 'Architecture Sécurité & IA d\u2019Entreprise',
-    subtitle: 'Architecte Sécurité & IA d\u2019Entreprise\u00a0\u00a0·\u00a0\u00a0Industries Régulées',
+    subtitle: 'Architecte IA & Cyber Risk d\u2019Entreprise\u00a0\u00a0·\u00a0\u00a0Industries Régulées',
     description:
       'Conception d\u2019architectures IA sécurisées, conformes et scalables, alignées sur le risque d\u2019affaires, les contraintes réglementaires et les réalités opérationnelles — alliant exécution technique approfondie, conscience réglementaire et exposition à la gouvernance de niveau exécutif.',
     ctaPrimary: 'Parler à mon Jumeau Numérique',
@@ -555,6 +577,21 @@ const fr: Translations = {
         ],
       },
     ],
+  },
+  impact: {
+    label: 'Impact d\u2019affaires',
+    heading: 'Impact Affaires & Entreprise',
+    intro:
+      'Mon travail vise systématiquement des résultats mesurables et alignés sur le risque \u2014 pas une conformité théorique ou une sécurité par cases à cocher.',
+    points: [
+      'Renforcement de la posture de sécurité organisationnelle par des programmes axés sur l\u2019architecture et des stratégies structurées de réduction du risque',
+      'Alignement de la conformité sur PIPEDA, Loi 25, Loi sur les assurances, PCI DSS et NIST \u2014 traduisant la complexité réglementaire en pratiques opérationnelles concrètes',
+      '\u00c9limination du fossé entre les équipes sécurité et les opérations d\u2019affaires \u2014 permettant une prise de décision éclairée et consciente du risque à chaque niveau organisationnel',
+      'Innovation IA sécurisée grâce à des principes appliqués : guardrails, moindre privilège, contrôles de mémoire et opérationnalisation responsable',
+      'Impulsion d\u2019une dynamique de gouvernance transversale \u2014 alignant les fonctions techniques, conformité et exécutives autour d\u2019objectifs de risque partagés',
+    ],
+    closing:
+      'Plutôt que de percevoir la sécurité comme une contrainte, je la positionne comme un catalyseur structuré de croissance durable et d\u2019innovation.',
   },
   footer: {
     rights: '© 2025 Raoul Elysée. Tous droits réservés.',

@@ -284,6 +284,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── IMPACT ────────────────────────────────────────────────────────────── */}
+      <section className="relative py-24 border-t border-zinc-800/50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <span className="text-emerald-400 text-sm font-medium uppercase tracking-wider">{t.impact.label}</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">{t.impact.heading}</h2>
+              <p className="text-zinc-400 mt-4 text-base leading-relaxed">{t.impact.intro}</p>
+            </div>
+            <ul className="space-y-4 mb-8">
+              {t.impact.points.map((point) => (
+                <li key={point} className="flex items-start gap-3 p-4 bg-zinc-800/30 border border-zinc-700/40 rounded-xl">
+                  <span className="text-emerald-400 shrink-0 mt-0.5 font-bold">→</span>
+                  <span className="text-zinc-300 text-sm leading-relaxed">{point}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-center text-zinc-300 text-base italic border-t border-zinc-800/50 pt-6">
+              &ldquo;<span className="text-emerald-400">{t.impact.closing}</span>&rdquo;
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── PHILOSOPHY ────────────────────────────────────────────────────────── */}
       <section className="relative py-24 border-t border-zinc-800/50">
         <div className="container mx-auto px-6">
