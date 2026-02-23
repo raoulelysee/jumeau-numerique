@@ -19,6 +19,7 @@ export default function Navbar() {
 
   const navLinks = [
     { label: t.nav.about, href: '#about' },
+    { label: t.nav.education, href: '#education' },
     { label: t.nav.expertise, href: '#expertise' },
     { label: t.nav.projects, href: '#projects' },
     { label: t.nav.digitalTwin, href: '#digital-twin' },

@@ -413,11 +413,11 @@ const fr: Translations = {
     Enterprise: 'Entreprise',
   },
   philosophy: {
-    q1: 'La sécurité n\u2019est pas une fonction de contrôle.',
-    q1em: 'C\u2019est un catalyseur de performance.',
-    q2: 'L\u2019intelligence artificielle n\u2019est pas un remplacement.',
-    q2em: 'C\u2019est un multiplicateur de force.',
-    q3em: 'L\u2019identité est le nouveau périmètre.',
+    q1: 'La sécurité n\u2019est pas une couche de contrôle.',
+    q1em: 'C\u2019est un catalyseur de valeur aligné sur le risque.',
+    q2: 'L\u2019IA n\u2019est pas l\u2019innovation par défaut.',
+    q2em: 'Elle doit être gouvernée, sécurisée et opérationnalisée de façon responsable.',
+    q3em: 'L\u2019architecture doit intégrer les objectifs d\u2019affaires, l\u2019exposition réglementaire et la responsabilité de gouvernance.',
   },
   digitalTwin: {
     badge: 'Propulsé par l\u2019IA',
@@ -431,6 +431,43 @@ const fr: Translations = {
     description:
       'Vous souhaitez discuter d\u2019architecture sécurité, de transformation IA ou d\u2019opportunités de leadership ? Je serais ravi d\u2019échanger.',
     linkedin: 'Profil LinkedIn',
+  },
+  education: {
+    label: 'Formation',
+    heading: 'Parcours Académique',
+    statusLabels: { completed: 'Complété', in_progress: 'En cours' },
+    items: [
+      {
+        period: '2026 – 2027',
+        degree: 'Certificat — Gestion et Réponse aux Cyberincidents',
+        institution: 'Polytechnique Montréal',
+        status: 'in_progress',
+      },
+      {
+        period: '2024 – 2025',
+        degree: 'Certificat — Analyse et Cybersécurité opérationnelle',
+        institution: 'Polytechnique Montréal',
+        status: 'completed',
+      },
+      {
+        period: '2022 – 2023',
+        degree: 'Certificat — Architecture et Gestion de la Cybersécurité',
+        institution: 'Polytechnique Montréal',
+        status: 'completed',
+      },
+      {
+        period: '2012 – 2015',
+        degree: 'Certificat — Informatique Développement logiciel',
+        institution: 'UQAM',
+        status: 'completed',
+      },
+      {
+        period: '1998 – 2001',
+        degree: 'DEC — Techniques de gestion',
+        institution: 'Collège Marie-Victorin',
+        status: 'completed',
+      },
+    ],
   },
   footer: {
     rights: '© 2025 Raoul Elysée. Tous droits réservés.',

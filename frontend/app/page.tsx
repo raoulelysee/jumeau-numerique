@@ -130,6 +130,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── EDUCATION ─────────────────────────────────────────────────────────── */}
+      <section id="education" className="relative py-24 border-t border-zinc-800/50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-12">
+              <span className="text-emerald-400 text-sm font-medium uppercase tracking-wider">{t.education.label}</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">{t.education.heading}</h2>
+            </div>
+            <div className="space-y-3">
+              {t.education.items.map((item) => (
+                <div
+                  key={`${item.period}-${item.degree}`}
+                  className="flex items-start gap-5 p-5 bg-zinc-800/30 border border-zinc-700/40 rounded-2xl hover:border-zinc-600/60 transition-colors duration-200"
+                >
+                  <div className="shrink-0 w-24 pt-0.5">
+                    <span className="text-emerald-400 text-xs font-mono font-medium leading-tight block">{item.period}</span>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-white font-semibold text-sm leading-snug">{item.degree}</h3>
+                    <p className="text-zinc-500 text-xs mt-0.5">{item.institution}</p>
+                  </div>
+                  <div className="shrink-0">
+                    {item.status === 'completed' && (
+                      <span className="px-2 py-0.5 rounded-md text-xs font-medium bg-emerald-500/15 text-emerald-400 border border-emerald-500/20">
+                        {t.education.statusLabels.completed}
+                      </span>
+                    )}
+                    {item.status === 'in_progress' && (
+                      <span className="px-2 py-0.5 rounded-md text-xs font-medium bg-amber-500/15 text-amber-400 border border-amber-500/20">
+                        {t.education.statusLabels.in_progress}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── EXPERTISE ─────────────────────────────────────────────────────────── */}
       <section id="expertise" className="relative py-24 border-t border-zinc-800/50">
         <div className="container mx-auto px-6">
